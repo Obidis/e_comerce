@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'crispy_forms',
     'crispy_bootstrap5',
-    'e_comerce',
+    'core',
     
 
 
@@ -58,7 +58,7 @@ MIDDLEWARE = [
 
 ]
 
-ROOT_URLCONF = 'e_comerce.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
@@ -77,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'e_comerce.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
