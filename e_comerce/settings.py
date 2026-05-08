@@ -5,7 +5,7 @@ import os #para la traduccion
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = BASE_DIR / "recetario" / "templates"
+TEMPLATES_DIR = BASE_DIR / "e_comerce" / "templates"
 
 
 # Quick-start development settings - unsuitable for production
@@ -58,7 +58,7 @@ MIDDLEWARE = [
 
 ]
 
-ROOT_URLCONF = 'recetario.urls'
+ROOT_URLCONF = 'e_comerce.urls'
 
 TEMPLATES = [
     {
@@ -77,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'recetario.wsgi.application'
+WSGI_APPLICATION = 'e_comerce.wsgi.application'
 
 
 # Database
