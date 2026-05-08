@@ -24,7 +24,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # Translation
-    'modeltranslation',
+   
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'crispy_forms',
     'crispy_bootstrap5',
-    'Pillow',
     'e_comerce',
     
 
