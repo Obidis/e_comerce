@@ -1,0 +1,75 @@
+
+{% load static %}
+{% load i18n %}
+
+<header class=" mb-4 mt-4">
+     
+     <!-- Navbar -->   
+    <nav class=" navbar navbar-expand-lg">
+        <img class=".img-fluid. " src="{% static '/imgs/martas_kitchen_logo.png' %}" alt="Logo" class="navbar-brand" width="150">
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse mt-4" id="navbarNav" >
+            <ul class="navbar-nav  mb-2 mb-lg-0 me-auto text-nowrap">
+                <li class="nav-item">
+                    <a class="nav-link"  href="{% url 'home' %}">{% trans "Inicio" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'receta_list' %}">{% trans "Recetas" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'profile_list' %}">{% trans "Perfiles" %}</a>
+                </li>
+                
+                {% if not request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">{% trans "Registro" %}</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">{% trans "Contacto" %}</a>
+                    </li>
+                {% if request.user.is_authenticated %}
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'recipe_create' %}">{% trans "Nueva Receta" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile_detail' request.user.profile.pk %}">{% trans "Mi Perfil" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile_favorites' request.user.profile.pk %}">{% trans "Favoritos" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">{% trans "Cerrar sesion" %}</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+        
+    </nav>
+
+    <!-- Language selection form -->
+    <div class="d-inline-flex p-2 bd-highlight">
+        <form method="post" action="{% url 'set_language' %}">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ request.path }}" />
+            <button type="submit" name="language" value="es" class="btn btn-link"><img src="{% static 'imgs/es.svg' %}" class="img-fluid rounded-circle" alt="Responsive image" width="30" height="30"></button>
+            <button type="submit" name="language" value="en" class="btn btn-link"><img src="{% static 'imgs/gb.svg' %}" class="img-fluid rounded-circle" alt="Responsive image" width="30" height="30"></button>
+        </form>
+    </div>
+
+    <!-- Search form -->
+    <div class="d-inline-flex p-2 bd-highlight">
+    
+        <form class="d-flex" role="search" action="{% url "search" %}" method="get">
+            <input  name="search"  class="form-control me-2" type="search" placeholder="{% trans "Search" %}" aria-label="{% trans "Search" %}"/>
+            <button class="btn btn-outline-success" type="submit">{% trans "Search" %}</button>
+        </form>
+    </div>
+</header>
