@@ -3,21 +3,50 @@
 {% load i18n %}
 
 <header class=" mb-4 mt-4">
-<div class="container ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-   <div class"sidenav">
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'imgs/ibogar.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-            {% trans "My Website" %}
-        </a>
+        <div class="container-fluid">
+            <a class="navbar-brand text-info fw-semibold fs-4" href="{% url 'home' %}">
+            <img src="{% static 'imgs/ibogar.png' %}" alt="Logo" width="200" height="200" class="d-inline-block align-text-top"></a>
 
-        <a href="{% url 'home' %}">{% trans "Home" %}</a>
-        <a href="">{% trans "Productos" %}</a>
-        <a href="">{% trans "Login" %}</a>
-        <a href="">{% trans "Contact" %}</a>
-        <a href="">{% trans "Registro" %}</a>
-    
-   </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <section class="offcanvas offcanvas-start bg-dark text-white" id="sidebar" tabindex="-1">
+                <div class="offcanvas-header" data-bs-theme="dark">
+                    <h5 class="offcanvas-title">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white" aria-label="Close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
+                    <ul class="navbar-nav fs-5 justify-content-evenly">
+                        <li class="nav-item px-3 py-2">
+                            <a class="nav-link" href="{% url 'home' %}">{% trans "Home" %}</a>
+                        </li>
+                        <li class="nav-item px-3 py-2">
+                            <a class="nav-link" href="">{% trans "About" %}</a>
+                        </li>
+                        <li class="nav-item px-3 py-2">   
+                            <a class="nav-link" href="">{% trans "Contact" %}</a>    
+                        </li>   
+                        <li class="nav-item px-3 py-2">   
+                            <a class="nav-link" href="">{% trans "Blog" %}</a>
+                        </li>
+                    </ul>
+                </div>            
+
+
+            
+            
+            
+            
+            
+            
+           
+            
+        </div>
+         
+    </nav>
 
 
 
@@ -26,11 +55,5 @@
     <!-- Language selection form -->
    
     <!-- Search form -->
-    <div class="d-inline-flex p-2 bd-highlight">
-    
-        <form class="d-flex" role="search" action="" method="get">
-            <input  name="search"  class="form-control me-2" type="search" placeholder="{% trans "Search" %}" aria-label="{% trans "Search" %}"/>
-            <button class="btn btn-outline-success" type="submit">{% trans "Search" %}</button>
-        </form>
-    </div>
+   
 </header>
