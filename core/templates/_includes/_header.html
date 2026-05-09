@@ -3,74 +3,25 @@
 {% load i18n %}
 
 <header class=" mb-4 mt-4">
-<div class="container">
-                <div class="row panelActions">
-                    
+<div class="container ">
 
-                    
+   <div class"sidenav">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'imgs/ibogar.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+            {% trans "My Website" %}
+        </a>
 
-                    <div class="col-md-5  panelcesta hidden-xs hidden-sm">
-                        <div class="telefonos">
-                            <h2 style="color:#FFFFFF;margin-top: 50px; margin-bottom: 0 !important; font-weight: 600;"><a href="tel:981775246">981 775 246</a></h2><a style="font-weight: 600;" href="mailto:info@ibogar.es">info@ibogar.es</a>
-                            <p>Nuestro horario de atención al cliente es de lunes a viernes 08:00 a 20:00</p>
-                        </div>
-                        <div class="cesta hidden hidden-xs hidden-sm">
-                                                    </div>
-                    </div>
-                </div>
-            </div>
+        <a href="{% url 'home' %}">{% trans "Home" %}</a>
+        <a href="">{% trans "Productos" %}</a>
+        <a href="">{% trans "Login" %}</a>
+        <a href="">{% trans "Contact" %}</a>
+        <a href="">{% trans "Registro" %}</a>
+    
+   </div>
 
 
-     
-     <!-- Navbar -->   
-    <nav class=" navbar navbar-expand-lg">
-        <img class=".img-fluid. " src="{% static 'imgs/ibogar.png' %}" alt="Logo" class="navbar-brand" width="150">
-         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse mt-4" id="navbarNav" >
-            <ul class="navbar-nav  mb-2 mb-lg-0 me-auto text-nowrap">
-                <li class="nav-item">
-                    <a class="nav-link"  href="{% url 'home' %}">{% trans "Inicio" %}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">{% trans "Recetas" %}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">{% trans "Perfiles" %}</a>
-                </li>
-                
-                {% if not request.user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}">{% trans "Registro" %}</a>
-                    </li>
-                    {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="">{% trans "Contacto" %}</a>
-                    </li>
-                {% if request.user.is_authenticated %}
-                   
-                    <li class="nav-item">
-                        <a class="nav-link" href="">{% trans "Nueva Receta" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">{% trans "Mi Perfil" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">{% trans "Favoritos" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">{% trans "Cerrar sesion" %}</a>
-                    </li>
-                {% endif %}
-            </ul>
-        </div>
-        
-    </nav>
+
 
     <!-- Language selection form -->
    
