@@ -1,3 +1,9 @@
 h2{
-    color: red;
+    color: #d2b100;
+}
+.nav-link{
+    color: rgb(238, 238, 222);
+}
+.nav-link:hover{
+    color: #d2b100;
 }
