@@ -5,12 +5,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 from .views import HomeView,  logout_view, login_view
 from users.views import registro 
+from products.views import SearchView
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
     path('login/', login_view, name="login"),
     path('logout/', logout_view, name="logout"),
     path('register/', registro, name="register"),
+    path('search/', SearchView.as_view(), name="search"),
   
     path('admin/', admin.site.urls),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
