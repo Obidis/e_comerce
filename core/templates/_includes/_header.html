@@ -21,19 +21,22 @@
                 <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
                     <ul class="navbar-nav fs-5 justify-content-evenly">
                         <li class="nav-item px-3 py-2">
-                            <a class="nav-link" href="{% url 'home' %}">"Home"</a>
+                            <a class="nav-link" href="{% url 'home' %}">Inicio</a>
                         </li>
                         {% if not request.user.is_authenticated %}
                         <li class="nav-item px-3 py-2">
-                            <a class="nav-link" href="{% url 'register' %}">"Register"</a>
+                            <a class="nav-link" href="{% url 'register' %}">Registrarse</a>
                         </li>
                         <li class="nav-item px-3 py-2">   
-                            <a class="nav-link" href="{% url 'login' %}">"Login"</a>    
+                            <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>    
                         </li>
                         {% endif %}
-                        {% if request.user.is_authenticated %}   
+                        {% if request.user.is_authenticated %}
                         <li class="nav-item px-3 py-2">   
-                            <a class="nav-link" href="{% url 'logout' %}">"Logout"</a>
+                            <a class="nav-link" href="{% url 'products_list' %}">Productos</a>
+                        </li>   
+                        <li class="nav-item px-3 py-2">   
+                            <a class="nav-link" href="{% url 'logout' %}">Salir</a>
                         </li>
                         {% endif %}
                     </ul>
@@ -44,11 +47,13 @@
     </nav>
 
     <!-- Search form -->
+    {% if request.user.is_authenticated %}
     <div class="d-inline-flex p-2 bd-highlight">
-    
+        
         <form class="d-flex" role="search" action="{% url "search" %}" method="get">
             <input  name="search"  class="form-control me-2" type="search" placeholder="Filtrar" aria-label="Search"/>
-            <button class="btn btn-outline-success" type="submit">"Filtrar"</button>
+            <button class="btn btn-outline-success"  type="submit">Filtrar</button>
         </form>
     </div>
+    {% endif %}
 </header>

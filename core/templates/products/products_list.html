@@ -1,0 +1,24 @@
+{% extends 'general/layout.html' %}
+
+{% block head_title %}Products List{% endblock %}
+{% block content %}
+
+
+<!-- Listado completo de productos -->
+<div class="container-fluid d-flex flex-column align-items-center mt-4">
+
+  <h1 class="display-6">Listado completo de productos</h1>
+  <div class="d-flex flex-wrap">   
+    {% if product %}
+    {% for product in products %}       
+      <div>
+       {% include  '_includes/_products.html' %}
+      </div>
+    {% endfor %}
+    {% else %}
+      <p class="text-danger">No hay productos disponibles.</p>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

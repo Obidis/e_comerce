@@ -5,13 +5,15 @@ from django.conf.urls.static import static
 from django.conf import settings
 from .views import HomeView,  logout_view, login_view
 from users.views import registro 
-from products.views import SearchView
+from products.views import SearchView, ProductsListView
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
     path('login/', login_view, name="login"),
     path('logout/', logout_view, name="logout"),
     path('register/', registro, name="register"),
+    path('products/', ProductsListView.as_view(), name="products_list"),
+    
     path('search/', SearchView.as_view(), name="search"),
   
     path('admin/', admin.site.urls),
