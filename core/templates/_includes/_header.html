@@ -24,13 +24,13 @@
                             <a class="nav-link" href="{% url 'home' %}">{% trans "Home" %}</a>
                         </li>
                         <li class="nav-item px-3 py-2">
-                            <a class="nav-link" href="">{% trans "About" %}</a>
+                            <a class="nav-link" href="{% url 'register' %}">{% trans "Register" %}</a>
                         </li>
                         <li class="nav-item px-3 py-2">   
-                            <a class="nav-link" href="">{% trans "Contact" %}</a>    
+                            <a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>    
                         </li>   
                         <li class="nav-item px-3 py-2">   
-                            <a class="nav-link" href="">{% trans "Blog" %}</a>
+                            <a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
                         </li>
                     </ul>
                 </div>            

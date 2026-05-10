@@ -1,7 +1,6 @@
 {% extends 'general/layout.html' %}
-{% load crispy_forms_tags %}
-{% load i18n %}
-{% block head_title %}Recetario-Login{% endblock %}
+{% load crispy_forms_tags %} {% load i18n %}
+{% block head_title %}Login{% endblock %}
 {% block content %}
 
 <!-- Login form -->
@@ -13,11 +12,11 @@
         <h1 class="card-title">Login</h1>
         <hr>
         
-        <form action="" method="post">
+        <form action="{% url 'login' %}" method="post">
         {% csrf_token %} 
           <div class="col-12 col-md-6" >
-            {{ form.username | as_crispy_field }}
-            {{ form.password | as_crispy_field }}
+           {{ form|crispy }}
+
           </div>  
         <button class="btn btn-light">{% trans "Iniciar sesion" %}</button>
         </form>

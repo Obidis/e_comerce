@@ -23,18 +23,31 @@ from django.views import View
 
 
 # viastas del index 
+
 class HomeView(TemplateView):
     template_name = "general/home.html"
-
+    
+    
    
     
 
 # vistas de Login
-class LoginView(FormView):
-    template_name = "general/login.html"
-    form_class = LoginForm
-
-   
+def login_view(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.add_message(request, messages.SUCCESS, ('Bienvenido, {}!').format(user.username))
+                return HttpResponseRedirect(reverse('home'))
+            else:
+                messages.add_message(request, messages.ERROR, _('Nombre de usuario o contraseña incorrectos.'))
+    else:
+        form = LoginForm()
+    return render(request, 'registration/login.html', {'form': form})
 
 #vista de logout
 @login_required
@@ -44,10 +57,6 @@ def logout_view(request):
     return HttpResponseRedirect(reverse('home'))
 
 
-# vista de registro 
-class RegisterView(CreateView):
-    template_name = "general/register.html"
-   
 
   
 # Vista para mostrar y gestionar las recetas favoritas de un usuario
