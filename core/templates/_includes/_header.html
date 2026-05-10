@@ -42,10 +42,10 @@
                     </ul>
                 </div>            
             </section>
-            
+                  
         </div>
     </nav>
-
+    <p class="text-success">Usuario: {{ user.username|default:"No hay usuario registrado" }}</p>
     <!-- Search form -->
     {% if request.user.is_authenticated %}
     <div class="d-inline-flex p-2 bd-highlight">
