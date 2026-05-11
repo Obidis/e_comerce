@@ -10,5 +10,7 @@ class ProductCreateForm(forms.ModelForm):
             "image",
             "product_name",
             "description",
-            "price"
+            "supplier",
+            "price",
+            "stock"
         ]

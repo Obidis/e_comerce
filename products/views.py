@@ -19,7 +19,7 @@ class ProductCreateView(CreateView):
     success_url = reverse_lazy("home")
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        form.instance.product = self.request.user
 
         messages.add_message(self.request, messages.SUCCESS, ('Producto creado correctamente.'))
         return super(ProductCreateView, self).form_valid(form)
