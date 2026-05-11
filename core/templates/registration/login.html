@@ -12,10 +12,10 @@
         <h1 class="card-title text-center">C.E. Ōkami</h1>
         <hr>
         
-        <form action="{% url 'login' %}" method="post">
+        <form action="{% url 'login' %}" method="post" autocomplete="off">
         {% csrf_token %} 
-          <div class="d-flex flex-column ali align-items-center">
-           {{ form|crispy }}
+          <div id="django-form" class="d-flex flex-column ali align-items-center">
+           {{ form| crispy }}
 
           </div>  
           <button class="btn btn-light d-flex justify-content-center">{% trans "Iniciar sesion" %}</button>
@@ -26,3 +26,10 @@
 </div>
 
 {% endblock %}
+
+<script>
+  $('django-form').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset'); // Restablece los campos
+  });
+
+</script>
