@@ -1,0 +1,30 @@
+{% extends 'general/layout.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}Nuevo producto{% endblock %}
+{% block content %}
+
+<!-- Formulario para crear una nueva receta -->
+  <div class="row">
+      
+    <div class="col-12 col-md-6 offset-md-3">
+      <div class="card">
+          <div class="card-body">
+            <h1 class="card-title">Nuevo Producto</h1>
+            <hr>
+           
+            <form action="" method="post", enctype="multipart/form-data">
+              {% csrf_token %} 
+              
+                  {{ form.image | as_crispy_field }}
+                  {{ form.product_name | as_crispy_field }}
+                  {{ form.description | as_crispy_field }}
+                  {{ form.price | as_crispy_field }}
+                
+              <button class="btn btn-light">Añadir Producto</button>
+            </form>
+          </div>
+      </div>  
+    </div>
+  </div>
+
+{% endblock %}

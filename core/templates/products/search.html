@@ -1,21 +1,21 @@
 {% extends 'general/layout.html' %} {% load crispy_forms_tags %} {% load i18n %}
-{% block head_title %}Recetas buscador{% endblock %}
+{% block head_title %}Productos buscador{% endblock %}
 {% block content %}
 
 
 <!-- Buscador -->
 <h1>{% trans "Buscador" %}</h1>
 
-{% if recetas %}
+{% if products %}
     <div class="d-flex flex-wrap">
-        {% for receta in recetas %}
+        {% for product in products %}
             <div>
-                {% include '_includes/_recetas.html' %}
+                {% include '_includes/_products.html' %}
             </div>
         {% endfor %}
     </div>
 {% else %}
-    <p class="p-5 text-center fs-5 fw-bold text-danger">{% trans "No se encontraron recetas que coincidan con tu búsqueda!!" %}</p>
+    <p class="p-5 text-center fs-5 fw-bold text-danger">No se encontraron productos que coincidan con tu búsqueda!!</p>
 {% endif %}
 
 {% endblock %}

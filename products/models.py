@@ -3,10 +3,10 @@ from django.contrib.auth.models import User
 
 
 class Products(models.Model):
-    product = models.ForeignKey(User,  on_delete=models.CASCADE, related_name="recetas", verbose_name=("Producto"))
+    product = models.ForeignKey(User,  on_delete=models.CASCADE, related_name="products", verbose_name=("Producto"))
     product_name = models.CharField(max_length=50, blank=True, verbose_name=("Nombre"))
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=("Precio"))
-    image = models.ImageField(upload_to="recetas_images/", verbose_name=("Imagen"))
+    image = models.ImageField(upload_to="product_images/", verbose_name=("Imagen"))
     description = models.TextField(max_length=3000, blank=True, verbose_name=("Descripcion"))
     suplier = models.CharField(max_length=1000, blank=True, verbose_name=("Proveedor"))
     add_at = models.DateTimeField(auto_now_add=True, verbose_name=("Fecha de entrada"))
