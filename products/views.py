@@ -50,7 +50,7 @@ class SearchView(ListView):
         query = self.request.GET.get('search')
         if query:
             return Products.objects.filter(
-                Q(product_name__icontains=query) | Q(description__icontains=query)
+                Q(product_name__icontains=query) | Q(category__icontains=query) | Q(supplier__icontains=query)
             ).distinct()
         else:
             return Products.objects.none()
