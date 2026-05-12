@@ -9,16 +9,33 @@
 
   <h1 class="display-6">Listado completo de productos</h1>
   <div class="d-flex flex-wrap">   
-    {% if products %}
-    {% for product in products %}       
-      <div>
-       {% include  '_includes/_products.html' %}
-      </div>
-    {% endfor %}
-    {% else %}
-      <p class="text-danger">No hay productos disponibles.</p>
-    {% endif %}
+   
   </div>
 </div>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Proveedor</th>
+      <th scope="col">F-Entrada</th>
+      <th scope="col">F-salida</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for product in products %}       
+      
+      {% include  '_includes/_products.html' %}
+    
+    {% endfor %}
+  </tbody>
+ 
+</table>
 
 {% endblock %}
