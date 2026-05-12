@@ -2,21 +2,14 @@
 
 
 
-<div  class="container mt-5 ">
-    <div class="card" style="width: 18rem;">
-        
-        <div class="card-body">
-            <h5 class="card-title">{{ product.product_name}}</h5>
-    
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cantidad disponible: {{ product.stock}}</li>
-        </ul>
-        <div class="card-body">
-            <a href="#" class="btn btn-light">Editar</a>
-            <a href="#" class="btn btn-danger">Eliminar</a>
-        </div>
-    </div>
-    
-</div>
  
+<tr>
+    <th scope="row">1</th>
+      <td>{{ product.product_id }}</td>
+      <td>{{ product.product_name }}</td>
+      <td>{{ product.stock }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.supplier }}</td>
+      <td>{{ product.add_at }}</td>
+      <td>{{ product.exit_at|date:"d-m-Y" }}</td>
+ </tr>
