@@ -1,17 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
 
 
 class Products(models.Model):
     product = models.ForeignKey(User,  on_delete=models.CASCADE, related_name="products", verbose_name=("Producto"))
     product_name = models.CharField(max_length=50, blank=True, verbose_name=("Nombre"))
-    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=("Precio"))
-    image = models.ImageField(upload_to="product_images/", verbose_name=("Imagen"))
     category = models.CharField(max_length=100, blank=True, verbose_name=("Categoria"))
     supplier = models.CharField(max_length=50, blank=True, verbose_name=("Proveedor"))
-    add_at = models.DateTimeField(auto_now_add=True, verbose_name=("Fecha de entrada"))
+    add_at = models.DateTimeField(auto_now_add=True,  blank=True, verbose_name=("Fecha de entrada"))
+    add_at = models.DateTimeField(auto_now_add=True,  blank=True,  verbose_name=("Fecha de salida"))
     stock = models.PositiveIntegerField(default=0, verbose_name=("Stock/Cantidad"))
-    cart = models.ManyToManyField(User, related_name='favourite', verbose_name=("Cesta"), blank=True)
+    
+    
 
 
     class Meta:

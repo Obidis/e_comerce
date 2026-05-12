@@ -2,12 +2,18 @@
 {% load static %}
 
 
-<header class=" mb-4 mt-4">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-        <div class="container-fluid">
-            <a class="navbar-brand text-info fw-semibold fs-4" href="{% url 'home' %}">
-            <img src="{% static 'imgs/ibogar.png' %}" alt="Logo" width="200" height="200" class="d-inline-block align-text-top"></a>
+<header class=" mb-4 mt-4 ">
+    <nav class="navbar navbar-expand-lg ">
+        
+        <div class="container-fluid d-flex flex-column">
+        <!-- Search form -->
+            <div class="">
+                <h5 class="text-center">Control stock</h5>
+                <form class="d-flex" role="search" action="{% url "search" %}" method="get">
+                    <input id="django-form-input"  name="search"  class="form-control me-2" type="search"  aria-label="Search"/>
+                    <button class="btn btn-outline-success"  type="submit">Filtrar</button>
+                </form>
+            </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
                 <span class="navbar-toggler-icon"></span>
@@ -21,27 +27,22 @@
                 <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
                     <ul class="navbar-nav fs-5 justify-content-evenly">
                         <li class="nav-item px-3 py-2">
-                            <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+                            <a class="nav-link text-success" href="{% url 'home' %}">Inicio</a>
                         </li>
                         {% if not request.user.is_authenticated %}
                         <li class="nav-item px-3 py-2">
-                            <a class="nav-link" href="{% url 'register' %}">Registrarse</a>
+                            <a class="nav-link text-success" href="{% url 'register' %}">Registrarse</a>
                         </li>
                         <li class="nav-item px-3 py-2">   
-                            <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>    
+                            <a class="nav-link text-success" href="{% url 'login' %}">Iniciar sesión</a>    
                         </li>
                         {% endif %}
                         {% if request.user.is_authenticated %}
-                                <li class="nav-item px-3 py-2">   
-                                    <a class="nav-link" href="{% url 'products_list' %}">Productos</a>
-                                </li>
-                                <li class="nav-item px-3 py-2">   
-                                    <a class="nav-link" href="{% url 'product_create' %}">Agregar Producto</a>
-                                </li>
+                              
 
-                        <li class="nav-item px-3 py-2">   
-                            <a class="nav-link" href="{% url 'logout' %}">Salir</a>
-                        </li>
+                            <li class="nav-item px-3 py-2">   
+                                <a class="nav-link text-success" href="{% url 'logout' %}">Salir</a>
+                            </li>
                         {% endif %}
                     </ul>
                 </div>            
@@ -49,15 +50,9 @@
                   
         </div>
     </nav>
-    <p class="text-success">Usuario: {{ user.username|default:"No hay usuario registrado" }}</p>
-    <!-- Search form -->
+    <p >Usuario: {{ user.username|default:"No hay usuario registrado" }}</p>
+    
     {% if request.user.is_authenticated %}
-    <div class="d-inline-flex p-2 bd-highlight">
-        
-        <form class="d-flex" role="search" action="{% url "search" %}" method="get">
-            <input  name="search"  class="form-control me-2" type="search" placeholder="Filtrar" aria-label="Search"/>
-            <button class="btn btn-outline-success"  type="submit">Filtrar</button>
-        </form>
-    </div>
+    
     {% endif %}
 </header>

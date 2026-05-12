@@ -10,41 +10,41 @@
 }
 
 
+.form-control{
+    background-color: #4e618a;
 
-
-
-
-h1,h2,h3,h4,h5,h6{
-    color: #d2b100;
 }
-.nav-link{
-    color: rgb(238, 238, 222);
+
+
+h1,h2,h3,h4,h6{
+    color:#223b6e;
+    font-size: 1.2rem;
+}
+.navbar{
+    background-color: #223b6e;
+}
+#box{
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.nav-link,h5,p {
+     color: #223b6e;
+     font-size: 1.3rem;
+   
 }
 .nav-link:hover{
-    color: #d2b100;
+   color:#198754;
 }
 .card-body{
-    background-color: #d2b100;
+    background-color: #223b6e;
 }
 
-#django-form-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #d2b100;
-    font-weight: 500;
-}
+
 #django-form-input {
-    width: 100%;
-    padding: 0.75rem 1rem;
+       
     border-width: 1px;
-    border-color: #d2d6dc;
+    border-color:#198754;
     border-radius: 0.5rem;
+    color:#198754;
 }
-#django-form-input:focus {
-    outline: none;
-    border-color: #d2b100;
-    box-shadow: 0 0 0 1px #d2b100;
-}
-#django-form input::placeholder {
-    color: #9ca3af;
-}
+

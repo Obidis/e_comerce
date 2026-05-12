@@ -12,8 +12,8 @@
         <h1 class="card-title text-center">C.E. Ōkami</h1>
         <hr>
         
-        <form action="{% url 'login' %}" method="post" autocomplete="off">
-        {% csrf_token %} 
+        <form action="{% url 'login' %}" method="post" autocomplete="new-password">
+          {% csrf_token %} 
           <div id="django-form" class="d-flex flex-column ali align-items-center">
            {{ form| crispy }}
 

@@ -1,13 +1,40 @@
 {% extends 'general/layout.html' %}
 {% load i18n %}
-{% block head_title %}Recetario{% endblock %}
+{% block head_title %}Home{% endblock %}
 {% block content %}
 
-<!-- Ultimas Recetas -->
-<section class="d-flex flex-column align-items-center mt-4">
+
+<div class="container">
+<h2 class="display-6">Dashboard</h2>
+<hr>
+   <div class="row d-flex flex-wrap justify-content-between mt-4 ">
+
+
+    <div id="box" class="w-25 p-5 d-flex flex-column align-items-center  m-2">
+        <a class="nav-link" href="{% url 'product_create' %}"><i class="bi bi-box-arrow-in-right"></i> Entradas</a>
+    </div>
+
+    <div id="box" class="w-25 p-5 d-flex flex-column  align-items-center  m-2">
+        <a class="nav-link" href=""><i class="bi bi-box-arrow-in-left"></i> Salidas</a>
+    </div>
+
+    <div id="box" class="w-25 p-5 d-flex flex-column align-items-center  m-2">
+        <a class="nav-link" href="{% url 'products_list' %}"><i class="bi bi-boxes"></i> Stock</a>
+    </div>
+
+    <div id="box" class="w-25 p-5 d-flex flex-column  align-items-center  m-2">
+        <a class="nav-link" href="{% url 'products_list' %}"><i class="bi bi-graph-up-arrow"></i> Graficos</a>
+    </div>
+
+
+
+
+
+
+   </div> 
     
-    <h4 class="display-6">Productos mas demandados</h4>
-   
-</section>    
+    
+     
+</div>
     
 {% endblock %}
