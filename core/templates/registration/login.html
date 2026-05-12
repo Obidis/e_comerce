@@ -7,9 +7,9 @@
 <div class="row">
   <div class="col-12 col-md-6 offset-md-3">
     <div class="card">
-      <div class="card-body  d-flex flex-column ali align-items-center">
+      <div id="box" class="card-body  d-flex flex-column align-items-center">
         
-        <h1 class="card-title text-center">C.E. Ōkami</h1>
+        <h1 class="card-title text-center">Iniciar sesion</h1>
         <hr>
         
         <form action="{% url 'login' %}" method="post" autocomplete="new-password">
@@ -18,7 +18,7 @@
            {{ form| crispy }}
 
           </div>  
-          <button class="btn btn-light d-flex justify-content-center">{% trans "Iniciar sesion" %}</button>
+          <button class="btn btn-light d-flex justify-content-center">Login</button>
         </form>
       </div>
     </div>  

@@ -1,6 +1,5 @@
 {% extends 'general/layout.html' %}
 {% load crispy_forms_tags %}
-{% load i18n %}
 {% block head_title %}Recetario-Registro{% endblock %}
 {% block content %}
 
@@ -8,17 +7,17 @@
   <div class="row">
   <div class="col-12 col-md-6 offset-md-3">
     <div class="card">
-      <div class="card-body  d-flex flex-column ali align-items-center">
-        <h1 class="card-title">C.E. Ōkami</h1>
+      <div id="box" class="card-body   d-flex flex-column ali align-items-center">
+        <h1 class="card-title">Registrarse</h1>
         
         <form action="" method="post">
         {% csrf_token %} 
-          <div class="d-flex flex-column ali align-items-center">
+          <div id="django-form" class="d-flex flex-column ali align-items-center">
             
             {{ form| crispy }}
           
           </div>
-          <button class="btn btn-light">{% trans "Registrarse" %}</button>
+          <button class="btn btn-light">Enviar</button>
         </form>
         </div>
     </div>

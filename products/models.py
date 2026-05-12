@@ -9,7 +9,7 @@ class Products(models.Model):
     category = models.CharField(max_length=100, blank=True, verbose_name=("Categoria"))
     supplier = models.CharField(max_length=50, blank=True, verbose_name=("Proveedor"))
     add_at = models.DateTimeField(auto_now_add=True,  blank=True, verbose_name=("Fecha de entrada"))
-    add_at = models.DateTimeField(auto_now_add=True,  blank=True,  verbose_name=("Fecha de salida"))
+    exit_at = models.DateTimeField(auto_now_add=True,  blank=True, null=True, verbose_name=("Fecha de salida"))
     stock = models.PositiveIntegerField(default=0, verbose_name=("Stock/Cantidad"))
     
     
