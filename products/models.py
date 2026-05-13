@@ -11,7 +11,7 @@ class Products(models.Model):
     product_name = models.CharField(max_length=50, blank=True, verbose_name=("Nombre"))
     category = models.CharField(max_length=100, blank=True, verbose_name=("Categoria"))
     supplier = models.CharField(max_length=50, blank=True, verbose_name=("Proveedor"))
-    timestamp  = models.DateTimeField(auto_now_add=True,  blank=True, verbose_name=("Fecha"))
+    timestamp  = models.DateTimeField(auto_now_add=True, blank=True, null=True, verbose_name=("Fecha"))
     stock = models.PositiveIntegerField(validators=[MinValueValidator(1)], verbose_name=("Stock/Cantidad"))
    
     
@@ -36,7 +36,7 @@ from django.core.validators import MinValueValidator
 
 class StockMovement(Products, models.Model):
     MOVEMENT_TYPES = (('IN', 'Entrada'), ('OUT', 'Salida'),)
-    quantity = models.PositiveIntegerField()
+    quantity = models.PositiveIntegerField(default=0)
     movement_type = models.CharField(max_length=3, choices=MOVEMENT_TYPES)
     notes = models.TextField(blank=True, help_text="Razón del movimiento (ej. Factura #123, Inventario físico)")
 
