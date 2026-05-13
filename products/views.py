@@ -55,7 +55,7 @@ class ProductUpdateView(UpdateView):
     
     def form_valid(self, form):
         form.instance.user = self.request.user
-        messages.add_message(self.request, messages.SUCCESS, ('Producto editada correctamente.'))
+        messages.add_message(self.request, messages.SUCCESS, ('Producto editado correctamente.'))
         return super(ProductUpdateView, self).form_valid(form)
     
     def get_success_url(self):
