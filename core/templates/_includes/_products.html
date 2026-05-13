@@ -5,14 +5,13 @@
  
 <tr>
     <th scope="row">1</th>
-      <td>{{ product.product_id }}</td>
+      <td>{{ product.id }}</td>
       <td>{{ product.product_name }}</td>
       <td>{{ product.stock }}</td>
       <td>{{ product.category }}</td>
       <td>{{ product.supplier }}</td>
-      <td>{{ product.add_at }}</td>
+      <td>{{ product.add_at|date:"d-m-Y"}}</td>
       <td>{{ product.exit_at|date:"d-m-Y" }}</td>
-      <td><a class="btn btn-light" href="{% url 'product_delete' product.pk %}"
-      >Eliminar</a
-    ></td>
+      <td><a class="btn btn-sm btn-outline-danger" href="{% url 'product_delete' product.pk %}">Eliminar</a></td>
+      <td><a class="btn btn-sm btn-outline-success" href="{% url 'product_update' product.pk %}">Actualizar</a></td>
  </tr>

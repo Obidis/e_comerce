@@ -1,6 +1,6 @@
 {% extends 'general/layout.html' %}
 {% load crispy_forms_tags %}
-{% block head_title %}Nuevo producto{% endblock %}
+{% block head_title %}Actualizar producto{% endblock %}
 {% block content %}
 
 <!-- Formulario para crear una nueva receta -->
@@ -9,7 +9,7 @@
     <div class="col-12 col-md-6 offset-md-3">
       <div class="card" >
           <div class="card-body" id="box">
-            <h1 class="card-title">Agregar</h1>
+            <h1 class="card-title">Actualizar</h1>
             <hr>
            
             <form action="" method="post", enctype="multipart/form-data">
@@ -20,7 +20,7 @@
                   {{ form.supplier | as_crispy_field }}
                   {{ form.stock | as_crispy_field }}
 
-              <button class="btn btn-sm btn-outline-success">Añadir Producto</button>
+              <button class="btn btn-light">Actualizar Producto</button>
             </form>
           </div>
       </div>  

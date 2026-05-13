@@ -3,7 +3,7 @@ from django.views.generic import ListView
 from products.models import Products
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from django.views.generic import CreateView, DeleteView
+from django.views.generic import CreateView, DeleteView, UpdateView
 from products.forms import ProductCreateForm
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
@@ -23,7 +23,10 @@ class ProductCreateView(CreateView):
 
         messages.add_message(self.request, messages.SUCCESS, ('Producto creado correctamente.'))
         return super(ProductCreateView, self).form_valid(form)
-    
+
+
+
+@method_decorator(login_required, name="dispatch")    
 class ProductDeleteView(DeleteView):
     model = Products
     template_name ="products/products_delete.html"
@@ -39,6 +42,24 @@ class ProductDeleteView(DeleteView):
     def get_success_url(self):
         return reverse('home')
     
+
+@method_decorator(login_required, name="dispatch")
+class ProductUpdateView(UpdateView):
+    model = Products
+    template_name = "products/products_update.html"
+    fields = "product_name", "category", "supplier", "stock"
+    success_url = reverse_lazy('home')
+
+    def get_queryset(self):
+        return self.model.objects.filter(product=self.request.user)
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        messages.add_message(self.request, messages.SUCCESS, ('Producto editada correctamente.'))
+        return super(ProductUpdateView, self).form_valid(form)
+    
+    def get_success_url(self):
+        return reverse('home')
 
 
 
