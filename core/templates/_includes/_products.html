@@ -12,4 +12,7 @@
       <td>{{ product.supplier }}</td>
       <td>{{ product.add_at }}</td>
       <td>{{ product.exit_at|date:"d-m-Y" }}</td>
+      <td><a class="btn btn-light" href="{% url 'product_delete' product.pk %}"
+      >Eliminar</a
+    ></td>
  </tr>

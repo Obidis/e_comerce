@@ -1,0 +1,21 @@
+{% extends 'general/layout.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}Productos delete{% endblock %}
+{% block content %}
+
+<!-- Formulario para eliminar un producto -->
+<h1 class="display-6">Eliminar producto</h1>
+<div class="d-flex flex-column  gap-3">
+  
+  <div class="d-inline-flex flex-column gap-2">
+    <p class="text-danger">¿Estas seguro de eliminar este producto: {{ object.product_name }}?</p>
+    
+  </div>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{% url 'products_list' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+
+{% endblock %}
