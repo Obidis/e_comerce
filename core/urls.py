@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from .views import HomeView,  logout_view, login_view
 from users.views import registro 
-from products.views import SearchView, ProductsListView, ProductCreateView, ProductDeleteView, ProductUpdateView
+from products.views import SearchView, ProductsListView, ProductCreateView, ProductDeleteView, ProductUpdateView, StockMovementListView
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
@@ -16,6 +16,7 @@ urlpatterns = [
     path('products/create/', ProductCreateView.as_view(), name="product_create"),
     path('products/delete/<int:pk>/', ProductDeleteView.as_view(), name="product_delete"),
     path('products/update/<int:pk>/', ProductUpdateView.as_view(), name="product_update"),
+    path('movements/', StockMovementListView.as_view(), name="movements_list"),
     
     path('search/', SearchView.as_view(), name="search"),
   
