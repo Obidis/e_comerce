@@ -50,9 +50,9 @@
                   
         </div>
     </nav>
-    <p >Usuario: {{ user.username|default:"No hay usuario registrado" }}</p>
-    
     {% if request.user.is_authenticated %}
-    
+        <p >Usuario: <span class="text-success">{{ user.username }}</span></p>
+    {% else %}
+        <p >Usuario: <span class="text-danger">No hay usuario registrado</span></p>
     {% endif %}
 </header>
