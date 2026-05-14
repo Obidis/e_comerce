@@ -40,7 +40,7 @@ class ProductDeleteView(DeleteView):
         return super(ProductDeleteView, self).form_valid(form)
     
     def get_success_url(self):
-        return reverse('home')
+        return reverse('products_list')
     
 #Actualizacion de productos
 @method_decorator(login_required, name="dispatch")
@@ -90,7 +90,7 @@ class SearchView(ListView):
 class StockMovementCreateView(CreateView):
     model = StockMovement
     form_class = StockMovementForm
-    template_name = 'products/products_movement.html'
+    template_name = 'products/movement_add.html'
     success_url = reverse_lazy('movements_list')
 
     def form_valid(self, form):
@@ -104,8 +104,4 @@ class StockMovementListView(ListView):
     model = StockMovement
     template_name = 'products/movement_list.html'
     context_object_name = 'movements'
-    paginate_by = 20
-
-    def get_queryset(self):
-        # Optimiza la consulta cargando relaciones externas en un solo query
-        return StockMovement.objects.all().select_related('product', 'user')
+    

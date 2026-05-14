@@ -6,11 +6,14 @@
 
 <tr>
     <th scope="row">1</th>
-      <td>{{ movements.id }}</td>
-      <td>{{ movements.product_name }}</td>
-      <td>{{ product.stock }}</td>
-      <td>{{ movements.movement_type }}</td>
       
-      <td>{{ product.timestamp |date:"d-m-Y" }}</td>
+      <td>{{ movement.product_id }}</td>
+      <td>{{ movement.product }}</td>
+      <td>{{ movement.movement_type }}</td>
+      <td>{{ movement.quantity }}</td>
+      <td>{{ movement.timestamp |date:"d-m-Y" }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ movement.notes }}</td>
+      <td>{{ movement.user_id }}</td>
       
 </tr>

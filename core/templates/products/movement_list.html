@@ -1,6 +1,6 @@
 {% extends 'general/layout.html' %}
 
-{% block head_title %}Products List{% endblock %}
+{% block head_title %}MOvimientos{% endblock %}
 {% block content %}
 
 
@@ -10,33 +10,71 @@
   <h1 class="display-6">Listado completo de movimientos</h1>
   <div class="d-flex flex-wrap">   
    
-  </div>
-</div>
+  
+  <section>
+    <details>
+      <summary  >Salidas</summary>
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Referencia</th>
+          <th scope="col">Producto</th>
+          <th scope="col">Tipo Movimiento</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">F-Movimiento</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Notas</th>
+          <th scope="col">Usuario</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for movement in  movements %}
+          {% if movement.movement_type == "OUT" %}       
+              
+            {% include  '_includes/_movements.html' %}
 
+          {% endif %}
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Tipo Movimiento</th>
-      <th scope="col">Cantidad</th>
-      <th scope="col">Referencia</th>
-      <th scope="col">Notas</th>
-      <th scope="col">F-Movimiento</th>
-      <th scope="col">Usuario</th>
-      
-
-    </tr>
-  </thead>
-  <tbody>
-  {% for product in products %}       
-      
-      {% include  '_includes/_movements.html' %}
+        {% endfor %}
+      </tbody>
     
-    {% endfor %}
-  </tbody>
- 
-</table>
+      </table>
+    </details>
+  
+    <details>
+      <summary>Entradas</summary>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Referencia</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Tipo Movimiento</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">F-Movimiento</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Notas</th>
+            <th scope="col">Usuario</th>
+            
+
+          </tr>
+        </thead>
+        <tbody>
+        {% for movement in  movements %}
+          {% if movement.movement_type == "IN" %}       
+            
+            {% include  '_includes/_movements.html' %}
+
+          {% endif %}
+
+        {% endfor %}
+        </tbody>
+      
+      </table>
+    </details>
+  </section>
+
+</div>
 
 {% endblock %}
