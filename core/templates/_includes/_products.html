@@ -8,8 +8,7 @@
       <td>{{ product.stock }}</td>
       <td>{{ product.category }}</td>
       <td>{{ product.supplier }}</td>
-      <td>{{ product.add_at|date:"d-m-Y"}}</td>
-      <td>{{ product.exit_at|date:"d-m-Y" }}</td>
-      <td><a class="btn btn-sm btn-outline-danger" href="{% url 'product_delete' product.pk %}">Eliminar</a></td>
-      <td><a class="btn btn-sm btn-outline-success" href="{% url 'product_update' product.pk %}">Actualizar</a></td>
- </tr>
+      <td>{{ product.timestamp|date:"d-m-Y"}}</td>
+      <td><a class="btn btn-sm btn-outline-danger" href="{% url 'product_delete' product.pk %}"><i class="bi bi-trash"></i></a></td>
+      <td><a class="btn btn-sm btn-outline-success" href="{% url 'product_update' product.pk %}"><i class="bi bi-pen"></i></a></td>
+</tr>

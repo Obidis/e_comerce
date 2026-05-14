@@ -1,6 +1,8 @@
 from .models import Products
 from django import forms
 
+from .models import StockMovement
+
 
 
 class ProductCreateForm(forms.ModelForm):
@@ -12,3 +14,10 @@ class ProductCreateForm(forms.ModelForm):
             "supplier",
             "stock"
         ]
+
+
+class StockMovementForm(forms.ModelForm):
+    class Meta:
+        model = StockMovement
+        fields = ['product', 'movement_type', 'quantity', 'notes']
+

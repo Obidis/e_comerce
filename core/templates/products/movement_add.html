@@ -1,0 +1,30 @@
+{% extends 'general/layout.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}Nuevo producto{% endblock %}
+{% block content %}
+
+<!-- Formulario para agregar un nuevo producto-->
+
+  <div class="row">
+      
+    <div class="col-12 col-md-6 offset-md-3">
+      <div class="card" >
+          <div class="card-body" id="box">
+            <h1 class="card-title">Agregar</h1>
+            <hr>
+           
+            <form action="" method="post", enctype="multipart/form-data">
+              {% csrf_token %} 
+                  
+                  {{ form.product | as_crispy_field }}
+                  {{ form.movement_type | as_crispy_field }}
+                  {{ form.quantity | as_crispy_field }}
+                  {{ form.notes | as_crispy_field }}
+
+              <button class="btn btn-sm btn-outline-success">Agregar Movimiento</button>
+            </form>
+          </div>
+      </div>  
+    </div>
+  </div>
+{% endblock %}

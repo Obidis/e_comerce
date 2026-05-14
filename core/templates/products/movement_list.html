@@ -1,0 +1,80 @@
+{% extends 'general/layout.html' %}
+
+{% block head_title %}MOvimientos{% endblock %}
+{% block content %}
+
+
+<!-- Listado completo de productos -->
+<div class="container-fluid d-flex flex-column align-items-center mt-4">
+
+  <h1 class="display-6">Listado completo de movimientos</h1>
+  <div class="d-flex flex-wrap">   
+   
+  
+  <section>
+    <details>
+      <summary  >Salidas</summary>
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Referencia</th>
+          <th scope="col">Producto</th>
+          <th scope="col">Tipo Movimiento</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">F-Movimiento</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Notas</th>
+          <th scope="col">Usuario</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for movement in  movements %}
+          {% if movement.movement_type == "OUT" %}       
+              
+            {% include  '_includes/_movements.html' %}
+
+          {% endif %}
+
+        {% endfor %}
+      </tbody>
+    
+      </table>
+    </details>
+  
+    <details>
+      <summary>Entradas</summary>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Referencia</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Tipo Movimiento</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">F-Movimiento</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Notas</th>
+            <th scope="col">Usuario</th>
+            
+
+          </tr>
+        </thead>
+        <tbody>
+        {% for movement in  movements %}
+          {% if movement.movement_type == "IN" %}       
+            
+            {% include  '_includes/_movements.html' %}
+
+          {% endif %}
+
+        {% endfor %}
+        </tbody>
+      
+      </table>
+    </details>
+  </section>
+
+</div>
+
+{% endblock %}
