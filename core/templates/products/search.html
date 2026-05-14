@@ -4,9 +4,38 @@
 
 
 <!-- Buscador -->
-<h1>{% trans "Buscador" %}</h1>
 
-{% if products %}
+
+
+
+
+<div class="container-fluid d-flex flex-column align-items-center mt-4">
+
+  <h1 class="display-6 mb-4">Resultados</h1>
+  <hr>
+  <div class="d-flex flex-wrap">   
+   
+  </div>
+</div>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Proveedor</th>
+      <th scope="col">F-Entrada</th>
+      <th scope="col">Eliminar</th>
+      <th scope="col">Actualizar</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% if products %}
     <div class="d-flex flex-wrap">
         {% for product in products %}
             <div>
@@ -14,8 +43,13 @@
             </div>
         {% endfor %}
     </div>
-{% else %}
-    <p class="p-5 text-center fs-5 fw-bold text-danger">No se encontraron productos que coincidan con tu búsqueda!!</p>
-{% endif %}
+    {% else %}
+    <p class="p-5 text-center fs-5 fw-bold text-danger">No se encontraron coincidencias!!</p>
+    {% endif %}
+  </tbody>
+ 
+</table>
 
 {% endblock %}
+
+
