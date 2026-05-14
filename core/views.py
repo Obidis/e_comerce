@@ -23,14 +23,10 @@ from django.views import View
 
 
 # viastas del index 
-
 class HomeView(TemplateView):
     template_name = "general/home.html"
     
     
-   
-    
-
 # vistas de Login
 def login_view(request):
     if request.method == 'POST':
@@ -59,7 +55,7 @@ def logout_view(request):
 
 
   
-# Vista para mostrar y gestionar las recetas favoritas de un usuario
+
 
 
 

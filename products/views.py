@@ -30,7 +30,7 @@ class ProductCreateView(CreateView):
 class ProductDeleteView(DeleteView):
     model = Products
     template_name ="products/products_delete.html"
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('products_list')
 
     def get_queryset(self):
         return self.model.objects.filter(product=self.request.user)
