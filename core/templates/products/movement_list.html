@@ -8,14 +8,14 @@
 <hr>
 <div class="container-fluid d-flex flex-column align-items-center mt-4">
 
-  <h1 class="display-6">Listado completo de movimientos</h1>
-  <hr>
-  <div class="d-flex flex-wrap">   
-   
+  <h1 class="display-6">Registro de movimientos</h1>
   
+  <div class="d-flex flex-wrap mt-5">
+    
     <section >
-      <details>
-        <summary class="text-center">Salidas</summary>
+     
+      <details class="mb-5">
+        <summary class="text-center">Registro de salidas</summary>
         <table class="table table-bordered">
         <thead>
           <tr>
@@ -25,9 +25,9 @@
             <th scope="col">Tipo Movimiento</th>
             <th scope="col">Cantidad</th>
             <th scope="col">F-Movimiento</th>
-            <th scope="col">Nombre</th>
             <th scope="col">Notas</th>
             <th scope="col">Usuario</th>
+            <th scope="col">Nombre</th>
           </tr>
         </thead>
         <tbody class="text-center">
@@ -43,9 +43,11 @@
       
         </table>
       </details>
+    
     <hr>
-      <details>
-        <summary class="text-center">Entradas</summary>
+      
+      <details class="mt-5">
+        <summary class="text-center">Registro de entradas</summary>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -55,9 +57,9 @@
               <th scope="col">Tipo Movimiento</th>
               <th scope="col">Cantidad</th>
               <th scope="col">F-Movimiento</th>
-              <th scope="col">Nombre</th>
               <th scope="col">Notas</th>
               <th scope="col">Usuario</th>
+              <th scope="col">Nombre</th>
               
 
             </tr>
@@ -77,6 +79,7 @@
       </details>
     </section>
   </div>
+  <a class="btn btn-light d-flex flex-column align-items-center  mt-5 text-center" href="{% url 'movements_create' %}"><i class="bi bi-arrow-down-up"></i>Agregar movimientos</a>
 </div>
 <hr>
 {% endblock %}
