@@ -1,7 +1,4 @@
 from django.shortcuts import render
-from django.views.generic.edit import FormView
-from django.contrib.auth.models import User
-from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
 
 from django.contrib.auth import login, authenticate, logout
@@ -9,15 +6,12 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
-from .forms import RegistrationForm, LoginForm
-from django.views.generic import FormView
+from .forms import LoginForm
 
-from django.shortcuts import get_object_or_404
-from django.utils.decorators import method_decorator
+
+
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _ #para la traduccion
-from django.utils import translation
-from django.views import View
 
 
 

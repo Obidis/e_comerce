@@ -1,55 +1,66 @@
-{% extends 'general/layout.html' %} {% load crispy_forms_tags %} {% load i18n %}
+{% extends 'general/layout.html' %}
+{% load crispy_forms_tags %}
 {% block head_title %}Productos buscador{% endblock %}
 {% block content %}
 
-
 <!-- Buscador -->
 
-
-
-
-
 <div class="container-fluid d-flex flex-column align-items-center mt-4">
-
   <h1 class="display-6 mb-4">Resultados</h1>
-  <hr>
-  <div class="d-flex flex-wrap">   
-   
-  </div>
-</div>
+  <hr />
+  <div class="d-flex flex-wrap"></div>
 
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">id</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Cantidad</th>
-      <th scope="col">Categoria</th>
-      <th scope="col">Proveedor</th>
-      <th scope="col">F-Entrada</th>
-      <th scope="col">Eliminar</th>
-      <th scope="col">Actualizar</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    {% if products %}
-    <div class="d-flex flex-wrap">
+  {% if products %}
+    <h3 class="mt-4 mb-3">Productos</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Proveedor</th>
+          <th scope="col">F-Entrada</th>
+          <th scope="col">Eliminar</th>
+          <th scope="col">Actualizar</th>
+        </tr>
+      </thead>
+      <tbody>
         {% for product in products %}
-            <div>
-                {% include '_includes/_products.html' %}
-            </div>
+        {% include '_includes/_products.html' %}
         {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+  {% if movements %}
+    <h3 class="mt-4 mb-3">Movimientos</h3>
+    <table class="table table-bordered text-center">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Referencia</th>
+          <th scope="col">Producto</th>
+          <th scope="col">Tipo Movimiento</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">F-Movimiento</th>
+          <th scope="col">Notas</th>
+          <th scope="col">Usuario</th>
+          <th scope="col">Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for movement in movements %}
+        {% include '_includes/_movements.html' %}
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+  {% if not products and not movements %}
+    <div class="alert alert-warning text-center mt-5 w-100" role="alert">
+      <p class="fs-5 fw-bold text-danger mb-0">No se encontraron coincidencias!!</p>
     </div>
-    {% else %}
-    <p class="p-5 text-center fs-5 fw-bold text-danger">No se encontraron coincidencias!!</p>
-    {% endif %}
-  </tbody>
- 
-</table>
-
+  {% endif %}
+</div>
 {% endblock %}
-
-

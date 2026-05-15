@@ -4,16 +4,39 @@
 
 
 <!-- Footer -->
-<footer class="container-fluid mt-5" id="footer">
-   
-    <center>
-        <p class="text-secondary">
-           &copy;
-           {% now 'Y' %}, 
-            ©Copyright <span class="span">By Ōkami. Ltd.</span><br> 
-            <a class="link-danger" href="{% static 'docs/Aviso_Legal.pdf' %}" target="_blank">{% trans "Aviso Legal" %}</a></p>
-        </p>
-    </center>
-</footer>
- 
-       
+
+
+ <footer class="footer">
+        <div class="container-fluid d-flex flex-column align-items-center mt-4">
+           
+                
+                
+               
+                <div class=" d-flex align-items-center justify-content-center  gap-2 flex-wrap">
+                        
+                    <a id="footer_links" class="nav-link  d-flex flex-column align-items-center  " href="{% url 'product_create' %}"><i class="bi bi-box-arrow-in-right"></i>Agregar producto</a>
+
+                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 text-center" href="{% url 'movements_create' %}"><i class="bi bi-box-arrow-in-right"></i>Agregar movimiento</a>
+
+                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2" href="{% url 'products_list' %}"><i class="bi bi-boxes"></i>Stock</a>
+
+                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2" href="{% url 'movements_list' %}"> <i class="bi bi-arrow-down-up"></i>Movimientos</a>
+
+                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2" href=""><i class="bi bi-box-arrow-in-left"></i> Salidas</a>
+
+                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2" href="{% url 'products_list' %}"><i class="bi bi-graph-up-arrow"></i>Graficos</a>
+                </div>
+                   
+            
+                <div class="col-md-6 d-flex flex-wrap justify-content-center">
+                    <p class="text-secondary">
+                        &copy;
+                        {% now 'Y' %}, 
+                            ©Copyright <span class="span">By Ōkami. Ltd.</span><br> 
+                            <a class="link-danger" href="{% static 'docs/Aviso_Legal.pdf' %}" target="_blank">{% trans "Aviso Legal" %}</a></p>
+                    </p>
+                </div>
+          
+        </div>
+    </footer>
+    

@@ -73,21 +73,53 @@ class ProductsListView(ListView):
     context_object_name = "products"    
 
 
-#buscador de productos
-class SearchView(ListView):
-    model = Products
+#buscador de PRODUCTOS Y MOVIMIENTOS EN LOS MODELOS Products Y StockMovement SI BUSCA EN STOCKMovement DEVOLVER LISTA DE MOVIMIENTOS
+@method_decorator(login_required, name="dispatch")
+class CombinedSearchView(TemplateView):
     template_name = "products/search.html"
-    context_object_name = "products"
-
-    def get_queryset(self):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         query = self.request.GET.get('search')
         if query:
-            return Products.objects.filter(
-                Q(product_name__icontains=query) | Q(category__icontains=query) | Q(supplier__icontains=query)
+            # Solo buscar en productos y movimientos del usuario actual
+            products_qs = Products.objects.filter(product=self.request.user)
+            context['products'] = products_qs.filter(
+                Q(product_name__icontains=query) |
+                Q(category__icontains=query) |
+                Q(supplier__icontains=query)
             ).distinct()
+
+            movements_qs = StockMovement.objects.filter(product__product=self.request.user)
+            # Evitar buscar texto en quantity (PositiveIntegerField) para evitar errores
+            movement_filters = (
+                Q(product__product_name__icontains=query) |
+                Q(movement_type__icontains=query) |
+                Q(notes__icontains=query)
+            )
+            if query.isdigit():
+                movement_filters |= Q(quantity=int(query))
+
+            context['movements'] = movements_qs.filter(movement_filters).distinct()
         else:
-            return Products.objects.none()
-                
+            context['products'] = Products.objects.none()
+            context['movements'] = StockMovement.objects.none()
+        return context
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #MOvimientos de stock
 
 
@@ -126,12 +158,7 @@ class StockMovementCreateView(CreateView):
         
     
         
-    
-
-
-
-
-
+ 
 @method_decorator(login_required, name="dispatch")
 class StockMovementListView(ListView):
     model = StockMovement
@@ -139,10 +166,7 @@ class StockMovementListView(ListView):
     context_object_name = 'movements'
     
     
-        
-
-
-
+ 
 class CsvView(TemplateView):
     def get(self, request, *args, **kwargs):
         response = HttpResponse(content_type='text/csv')
@@ -153,4 +177,3 @@ class CsvView(TemplateView):
         for fila in datos:
             writer.writerow(fila)
         return response
-    

@@ -10,13 +10,14 @@
 
   <h1 class="display-6">Registro de movimientos</h1>
   
-  <div class="d-flex flex-wrap mt-5">
+  
     
     <section >
-     
+      
       <details class="mb-5">
         <summary class="text-center">Registro de salidas</summary>
-        <table class="table table-bordered">
+        <div class="table-responsive"> 
+        <table class="table table-bordered table-hover">
         <thead>
           <tr class="text-center">
             <th scope="col">#</th>
@@ -42,13 +43,16 @@
         </tbody>
       
         </table>
+        </div>
       </details>
+     
     
     <hr>
       
       <details class="mt-5">
         <summary class="text-center">Registro de entradas</summary>
-        <table class="table table-bordered">
+        <div class="table-responsive"> 
+        <table class="table table-bordered table-hover">
           <thead>
             <tr class="text-center">
               <th scope="col">#</th>
@@ -60,8 +64,6 @@
               <th scope="col">Notas</th>
               <th scope="col">Usuario</th>
               <th scope="col">Nombre</th>
-              
-
             </tr>
           </thead>
           <tbody class="text-center">
@@ -76,12 +78,14 @@
           </tbody>
         
         </table>
+        </div>
       </details>
-      <a class="nav-link d-flex flex-column align-items-center  mt-5 text-center" href="{% url 'movements_create' %}"><i class="bi bi-box-arrow-in-right"></i>Agregar movimiento</a>
-  </div>
+      </div>
+  
     </section>
      
   
 </div>
 <hr>
+
 {% endblock %}

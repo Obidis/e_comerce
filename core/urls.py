@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from .views import HomeView,  logout_view, login_view
 from users.views import registro 
-from products.views import SearchView, ProductsListView, ProductCreateView, ProductDeleteView, ProductUpdateView, StockMovementListView,StockMovementCreateView,CsvView
+from products.views import CombinedSearchView, ProductsListView, ProductCreateView, ProductDeleteView, ProductUpdateView, StockMovementListView,StockMovementCreateView,CsvView
 
 
 
@@ -22,6 +22,6 @@ urlpatterns = [
     path('movements/', StockMovementListView.as_view(), name="movements_list"),
     path('movements/create/', StockMovementCreateView.as_view(), name="movements_create"),
     path('csv/', CsvView.as_view(), name="csv"),
-    path('search/', SearchView.as_view(), name="search"),
+    path('search/', CombinedSearchView.as_view(), name="search"),
     path('admin/', admin.site.urls),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
