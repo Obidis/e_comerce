@@ -18,7 +18,7 @@
         <summary class="text-center">Registro de salidas</summary>
         <table class="table table-bordered">
         <thead>
-          <tr>
+          <tr class="text-center">
             <th scope="col">#</th>
             <th scope="col">Referencia</th>
             <th scope="col">Producto</th>
@@ -50,7 +50,7 @@
         <summary class="text-center">Registro de entradas</summary>
         <table class="table table-bordered">
           <thead>
-            <tr>
+            <tr class="text-center">
               <th scope="col">#</th>
               <th scope="col">Referencia</th>
               <th scope="col">Producto</th>
@@ -77,9 +77,11 @@
         
         </table>
       </details>
-    </section>
+      <a class="nav-link d-flex flex-column align-items-center  mt-5 text-center" href="{% url 'movements_create' %}"><i class="bi bi-box-arrow-in-right"></i>Agregar movimiento</a>
   </div>
-  <a class="btn btn-light d-flex flex-column align-items-center  mt-5 text-center" href="{% url 'movements_create' %}"><i class="bi bi-arrow-down-up"></i>Agregar movimientos</a>
+    </section>
+     
+  
 </div>
 <hr>
 {% endblock %}
