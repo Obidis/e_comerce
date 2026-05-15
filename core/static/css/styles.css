@@ -27,6 +27,7 @@
 #box{
     background-color: #ffffff;
     min-width: 20rem;
+    box-shadow: 20px 20px 50px 10px #223b6e inset;
     
 }
 #box:hover{
@@ -34,7 +35,8 @@
 }
 
 #footer_links{
-    width: 10rem;
+    width: 11rem;
+    box-shadow: 5px 5px 5px 5px #223b6e inset;
 }
 
 
