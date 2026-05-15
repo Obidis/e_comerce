@@ -5,39 +5,36 @@
 
 
 <!-- Listado completo de productos -->
-<div class="container-fluid d-flex flex-column align-items-center mt-4">
+<section class="mb-5">
+  
+  <!-- Descarga csv -->
   {% include "_includes/_csv.html" %}
-  <h1 class="display-6">Listado completo de productos</h1>
-  <div class="d-flex flex-wrap">   
-   
-  </div>
-</div>
-
-
-<table class="table table-bordered table-hover">
-  <thead>
-    <tr class="text-center">
-      <th scope="col">#</th>
-      <th scope="col">id</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Cantidad</th>
-      <th scope="col">Categoria</th>
-      <th scope="col">Proveedor</th>
-      <th scope="col">F-Entrada</th>
-      <th scope="col">Eliminar</th>
-      <th scope="col">Actualizar</th>
-
-    </tr>
-  </thead>
-  <tbody>
-  {% for product in products %}       
-      
-      {% include  '_includes/_products.html' %}
-    
-    {% endfor %}
-  </tbody>
- 
-</table>
-
+  <h1 class="display-6  text-center mb-5">Listado completo de productos</h1>
+  <hr>
+    <!-- Tabla productos -->
+  <div class="table-responsive table-sm mt-5">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">#</th>
+          <th scope="col">id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Proveedor</th>
+          <th scope="col">F-Entrada</th>
+          <th scope="col">Eliminar</th>
+          <th scope="col">Actualizar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in products %}       
+          {% include  '_includes/_products.html' %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div> 
+</section>
+<hr>
 
 {% endblock %}

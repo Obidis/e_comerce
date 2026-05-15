@@ -1,58 +1,54 @@
 {% extends 'general/layout.html' %}
-
-{% block head_title %}MOvimientos{% endblock %}
+{% block head_title %}Movimientos{% endblock %}
 {% block content %}
 
 
 <!-- Listado completo de productos -->
-<hr>
-<div class="container-fluid d-flex flex-column align-items-center mt-4">
+<section class="mb-5" >
 
-  <h1 class="display-6">Registro de movimientos</h1>
-  
-  
-    
-    <section >
-      
-      <details class="mb-5">
-        <summary class="text-center">Registro de salidas</summary>
-        <div class="table-responsive"> 
-        <table class="table table-bordered table-hover">
-        <thead>
-          <tr class="text-center">
-            <th scope="col">#</th>
-            <th scope="col">Referencia</th>
-            <th scope="col">Producto</th>
-            <th scope="col">Tipo Movimiento</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">F-Movimiento</th>
-            <th scope="col">Notas</th>
-            <th scope="col">Usuario</th>
-            <th scope="col">Nombre</th>
-          </tr>
-        </thead>
-        <tbody class="text-center">
-          {% for movement in  movements %}
-            {% if movement.movement_type == "OUT" %}       
-                
-              {% include  '_includes/_movements.html' %}
+  <h1 class="display-6 text-center mb-5">Registro de movimientos</h1>
+  <hr>
 
-            {% endif %}
+  <!-- Tabla salidas -->
+  <div class="table-responsive">
+        
+    <details class="mb-5">
+      <summary class="text-center">Registro de salidas</summary>
+        <table class="table table-bordered table-hover table-sm">git
+          <thead>
+            <tr class="text-center">
+              <th scope="col">#</th>
+              <th scope="col">Referencia</th>
+              <th scope="col">Producto</th>
+              <th scope="col">Tipo Movimiento</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">F-Movimiento</th>
+              <th scope="col">Notas</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Nombre</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            {% for movement in  movements %}
+              {% if movement.movement_type == "OUT" %}       
+                  
+                {% include  '_includes/_movements.html' %}
 
-          {% endfor %}
-        </tbody>
+              {% endif %}
+
+            {% endfor %}
+          </tbody>
       
         </table>
-        </div>
-      </details>
-     
-    
-    <hr>
-      
-      <details class="mt-5">
+    </details>
+  </div> 
+  
+    <!-- Tabla entradas -->
+  <div class="table-responsive">  
+    <details class="mt-5">
         <summary class="text-center">Registro de entradas</summary>
-        <div class="table-responsive"> 
-        <table class="table table-bordered table-hover">
+       
+        <table class="table table-bordered table-hover table-sm">
           <thead>
             <tr class="text-center">
               <th scope="col">#</th>
@@ -78,14 +74,10 @@
           </tbody>
         
         </table>
-        </div>
-      </details>
-      </div>
-  
-    </section>
-     
-  
-</div>
+      
+    </details>
+  </div>
+</section>
 <hr>
 
 {% endblock %}

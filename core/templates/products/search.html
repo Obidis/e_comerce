@@ -10,7 +10,7 @@
   <hr />
   <div class="d-flex flex-wrap"></div>
 
-
+  <!-- Por productos -->
   {% if products %}
     <h3 class="mt-4 mb-3">Productos</h3>
     <table class="table table-striped">
@@ -34,6 +34,8 @@
       </tbody>
     </table>
   {% endif %}
+
+   <!-- Por movimientos -->
   {% if movements %}
     <h3 class="mt-4 mb-3">Movimientos</h3>
     <table class="table table-bordered text-center">
@@ -57,6 +59,8 @@
       </tbody>
     </table>
   {% endif %}
+
+   <!-- Si no hay -->
   {% if not products and not movements %}
     <div class="alert alert-warning text-center mt-5 w-100" role="alert">
       <p class="fs-5 fw-bold text-danger mb-0">No se encontraron coincidencias!!</p>
