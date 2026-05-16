@@ -7,66 +7,10 @@
         
        <div class="container-fluid d-flex flex-column">
         <!-- Search form -->
-            <div class="">
-                <h5 class="text-center text-light">Control stock</h5>
-                <form class="d-flex" role="search" action="{% url "search" %}" method="get">
-                    <input id="django-form-input"  name="search"  class="form-control me-2" type="search"  aria-label="Search"/>
-                    <button class="btn text-light"  type="submit">Filtrar</button>
-                </form>
-            </div>
+            {% include "_includes/_searcher.html" %} 
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-            <section class="offcanvas offcanvas-start bg-dark " id="sidebar" tabindex="-1">
-                <div class="offcanvas-header" data-bs-theme="dark">
-                    <h5 class="offcanvas-title  text-light">Menu</h5>
-                    <button type="button" class="btn-close btn-close-white" aria-label="Close" data-bs-dismiss="offcanvas"></button>
-                </div>
-                <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
-                    <ul class="navbar-nav fs-5 justify-content-evenly">
-                        <li class="nav-item px-3 py-2">
-                            <a class="nav-link text-light" href="{% url 'home' %}">Inicio</a>
-                        </li>
-                        {% if not request.user.is_authenticated %}
-                        <li class="nav-item px-3 py-2">
-                            <a class="nav-link text-light" href="{% url 'register' %}">Registrarse</a>
-                        </li>
-                        <li class="nav-item px-3 py-2">   
-                            <a class="nav-link text-light" href="{% url 'login' %}">Iniciar sesión</a>    
-                        </li>
-                        {% endif %}
-                        {% if request.user.is_authenticated %}
-                              
-
-                            <li class="nav-item px-3 py-2">   
-                                <a class="nav-link text-light" href="{% url 'logout' %}">Salir</a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                </div>            
-            </section>
-                  
+            <!-- Search form -->
+           {% include "_includes/_header_nav.html" %}
         </div>
     </nav>
     {% if request.user.is_authenticated %}

@@ -1,0 +1,24 @@
+{% load static %}
+
+<section class="offcanvas offcanvas-start bg-dark " id="sidebar" tabindex="-1">
+    <div class="offcanvas-header" data-bs-theme="dark">
+        <h5 class="offcanvas-title  text-light">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" aria-label="Close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
+        <ul class="navbar-nav fs-5 justify-content-evenly">
+            <li class="nav-item px-3 py-2"><a class="nav-link text-light" href="{% url 'home' %}">Inicio</a></li>
+            
+            {% if not request.user.is_authenticated %}
+            
+            <li class="nav-item px-3 py-2"><a class="nav-link text-light" href="{% url 'register' %}">Registrarse</a></li>
+            <li class="nav-item px-3 py-2"><a class="nav-link text-light" href="{% url 'login' %}">Iniciar sesión</a></li>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+                              
+                <li class="nav-item px-3 py-2"><a class="nav-link text-light" href="{% url 'logout' %}">Salir</a></li>
+            {% endif %}
+        </ul>
+    <div>            
+</section>
+                  
