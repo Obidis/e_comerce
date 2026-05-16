@@ -156,7 +156,7 @@ class MovemenDeleteView(DeleteView):
 
 
     def get_queryset(self):
-        return self.model.objects.filter(notes=self.request.user)
+        return self.model.objects.filter(product__product=self.request.user)
 
 
     def form_valid(self, form):

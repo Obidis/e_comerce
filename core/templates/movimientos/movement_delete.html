@@ -1,0 +1,52 @@
+{% extends 'general/layout.html' %} 
+{% load crispy_forms_tags %} 
+{% block head_title %}Movimientos delete{% endblock %} 
+{% block content %}
+
+<!-- Formulario para eliminar un producto -->
+<h1 class="display-6">Eliminar Movimiento</h1>
+<div class="d-flex flex-column gap-3">
+  <div class="d-inline-flex flex-column gap-2">
+    <p class="text-danger">¿Estas seguro de eliminar este movimiento:</p>
+
+    <!-- tabla para mostrar el movimiento  a eliminar -->
+    <table class="table table-bordered table-hover table-sm">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">#</th>
+          <th scope="col">Referencia</th>
+          <th scope="col">Producto</th>
+          <th scope="col">Tipo Movimiento</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">F-Movimiento</th>
+          <th scope="col">Notas</th>
+          <th scope="col">Usuario</th>
+          <th scope="col">Nombre</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr>
+          <td>{{ object.id }}</td>
+          <td>{{ object.product.id }}</td>
+          <td>{{ object.product }}</td>
+          <td>{{ object.get_movement_type_display }}</td>
+          <td>{{ object.quantity }}</td>
+          <td>{{ object.timestamp |date:"d-m-Y" }}</td>
+          <td>{{ object.notes }}</td>
+          <td>{{ object.user.id }}</td>
+          <td>{{ object.user }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+      <a href="{% url 'products_list' %}" class="btn btn-secondary btn-sm"
+        >Cancelar</a
+      >
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -20,12 +20,13 @@
 
 
 .navbar{
-    background-color: #223b6e;
+     box-shadow: 15px 0px 125px 35px #223b6e inset;
 }
-#box{
+#box, #box2{
     background-color: #ffffff;
     min-width: 20rem;
-    box-shadow: -5px -0px 35px 15px #223b6e inset;
+    box-shadow: -5px -0px 50px 25px #223b6e inset;
+    color:  #223b6e;
     
 }
 #box:hover{
@@ -38,6 +39,6 @@
 }
 
 
-#footer-links :hover{
-    background-color: #ffffff;
+#footer_links:hover{
+     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;  
 }
