@@ -73,7 +73,7 @@ class ProductsListView(ListView):
     context_object_name = "products"    
 
 
-#buscador de PRODUCTOS Y MOVIMIENTOS EN LOS MODELOS Products Y StockMovement SI BUSCA EN STOCKMovement DEVOLVER LISTA DE MOVIMIENTOS
+#Busqueda de productos y movimientos
 @method_decorator(login_required, name="dispatch")
 class CombinedSearchView(TemplateView):
     template_name = "products/search.html"
@@ -106,28 +106,12 @@ class CombinedSearchView(TemplateView):
         return context
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#MOvimientos de stock
-
-
+#Movimientos de stock
 @method_decorator(login_required, name="dispatch")
 class StockMovementCreateView(CreateView):
     model = StockMovement
     form_class = StockMovementForm
-    template_name = 'products/movement_add.html'
+    template_name = 'movimientos/movement_add.html'
     success_url = reverse_lazy('movements_list')
 
     def form_valid(self, form):
@@ -157,16 +141,34 @@ class StockMovementCreateView(CreateView):
         return True
         
     
-        
- 
+#Lista de movimientos        
 @method_decorator(login_required, name="dispatch")
 class StockMovementListView(ListView):
     model = StockMovement
-    template_name = 'products/movement_list.html'
+    template_name = 'movimientos/movement_list.html'
     context_object_name = 'movements'
     
+
+class MovemenDeleteView(DeleteView):
+    model = StockMovement
+    template_name = "movimientos/movement_delete.html"
+    success_url = reverse_lazy("movements_list")
+
+
+    def get_queryset(self):
+        return self.model.objects.filter(notes=self.request.user)
+
+
+    def form_valid(self, form):
+        messages.add_message(self.request, messages.SUCCESS, 'Movimiento eliminado correctamente.')
+        return super(MovemenDeleteView, self).form_valid(form)
     
- 
+
+    def get_success_url(self):
+        return reverse('movements_list')
+
+
+ #Exportar a csv
 class CsvView(TemplateView):
     def get(self, request, *args, **kwargs):
         response = HttpResponse(content_type='text/csv')

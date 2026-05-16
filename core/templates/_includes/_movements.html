@@ -8,4 +8,6 @@
   <td>{{ movement.notes }}</td>
   <td>{{ movement.user_id }}</td>
   <td>{{ movement.user }}</td>
+  <td><a class="btn btn-sm btn-outline-danger" href="{% url 'movement_delete' movement.pk %}"><i class="bi bi-trash"></i></a></td>
+ 
 </tr>

@@ -1,4 +1,3 @@
-{% load i18n %}
 {% load static %}
 
 
@@ -14,17 +13,17 @@
                
                 <div class=" d-flex align-items-center justify-content-center  gap-2 flex-wrap">
                         
-                    <a id="footer_links" class="nav-link  d-flex flex-column align-items-center m-2 p-3 " href="{% url 'product_create' %}"><i class="bi bi-box-arrow-in-right"></i>Agregar producto</a>
+                    <a id="footer_links" class="nav-link  d-flex flex-column align-items-center m-2 p-3" href="{% url 'product_create' %}"><i class="bi bi-box-arrow-in-right fs-6"></i>Agregar producto</a>
 
-                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 p-3" href="{% url 'movements_create' %}"><i class="bi bi-box-arrow-in-right"></i>Agregar movimiento</a>
+                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 p-3 fs-6" href="{% url 'movements_create' %}"><i id="icons" class="bi bi-box-arrow-in-right"></i>Agregar movimiento</a>
 
-                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 p-3" href="{% url 'products_list' %}"><i class="bi bi-boxes"></i>Stock</a>
+                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 p-3 fs-6" href="{% url 'products_list' %}"><i id="icons" class="bi bi-boxes"></i>Stock</a>
 
-                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 p-3" href="{% url 'movements_list' %}"> <i class="bi bi-arrow-down-up"></i>Movimientos</a>
+                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 p-3 fs-6" href="{% url 'movements_list' %}"> <i id="icons" class="bi bi-arrow-down-up"></i>Movimientos</a>
 
-                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 p-3" href=""><i class="bi bi-box-arrow-in-left"></i> Salidas</a>
+                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 p-3 fs-6" href=""><i id="icons" class="bi bi-box-arrow-in-left"></i> Salidas</a>
 
-                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 p-3" href="{% url 'products_list' %}"><i class="bi bi-graph-up-arrow"></i>Graficos</a>
+                    <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 p-3 fs-6" href="{% url 'products_list' %}"><i id="icons" class="bi bi-graph-up-arrow"></i>Graficos</a>
                 </div>
                    
             
@@ -33,7 +32,7 @@
                         &copy;
                         {% now 'Y' %}, 
                             ©Copyright <span class="span">By Ōkami. Ltd.</span><br> 
-                            <a class="link-danger" href="{% static 'docs/Aviso_Legal.pdf' %}" target="_blank">{% trans "Aviso Legal" %}</a></p>
+                            <a class="link-danger" href="{% static 'docs/Aviso_Legal.pdf' %}" target="_blank">Aviso Legal</a></p>
                     </p>
                 </div>
           
