@@ -9,6 +9,7 @@ from django.urls import reverse_lazy, reverse
 from django.contrib import messages
 import csv
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
 
@@ -179,3 +180,7 @@ class CsvView(TemplateView):
         for fila in datos:
             writer.writerow(fila)
         return response
+
+
+def graphics_view(request):
+    return render(request, 'general/graphics.html')
