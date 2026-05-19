@@ -30,8 +30,11 @@
                 <a class="nav-link d-flex flex-column align-items-center  m-2" href="{% url 'movements_list' %}"> <i class="bi bi-arrow-down-up fs-2"></i>Movimientos</a>
             </div>
 
-            <div id="box" class="p-5 d-flex flex-column  align-items-center m-2">
-                <a class="nav-link d-flex flex-column align-items-center  m-2" href=""><i class="bi bi-box-arrow-in-left fs-2"></i> Salidas</a>
+            <div id="box-reloj" class="p-5 d-flex flex-column align-items-center m-2">
+                <div id="reloj-container">
+                    <div class="text-info" id="reloj-hora">00:00:00</div>
+                    <div class="text-info"  id="reloj-fecha">Cargando...</div>
+                </div>
             </div>
 
             <div id="box" class=" p-5 d-flex flex-column  align-items-center m-2">
@@ -41,5 +44,6 @@
         </div>
     </div>           
 </section>    
-    
+
+
 {% endblock %}
