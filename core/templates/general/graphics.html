@@ -1,11 +1,13 @@
-{% extends 'general/layout.html' %}
-{% load crispy_forms_tags %}
-{% block head_title %}Nuevo producto{% endblock %}
+{% extends 'general/layout.html' %} 
+{% load crispy_forms_tags %} 
+{% block head_title %}Graficos{% endblock %} 
 {% block content %}
 
-<!-- Formulario para agregar un nuevo producto-->
-  <div class="row">
-    <h1>Graficos</h1>  
-    
-  </div>
+
+<div style="display: flex; justify-content: space-between; gap: 20px; width: 100%;">
+    {% include "_includes/_movements_graphics.html" %} 
+    {% include "_includes/_product_graphics.html" %} 
+</div>
+
+
 {% endblock %}

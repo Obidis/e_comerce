@@ -9,7 +9,10 @@ from django.urls import reverse_lazy, reverse
 from django.contrib import messages
 import csv
 from django.http import HttpResponse
+
+
 from django.shortcuts import render
+import plotly.express as px
 
 
 
@@ -170,6 +173,9 @@ class MovemenDeleteView(DeleteView):
 
 
  #Exportar a csv
+
+
+
 class CsvView(TemplateView):
     def get(self, request, *args, **kwargs):
         response = HttpResponse(content_type='text/csv')
@@ -181,6 +187,37 @@ class CsvView(TemplateView):
             writer.writerow(fila)
         return response
 
+import pandas as pd
 
-def graphics_view(request):
-    return render(request, 'general/graphics.html')
+
+#Graficos combinados
+@method_decorator(login_required, name="dispatch")
+class GraphicsView(TemplateView):
+    template_name = "general/graphics.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        # 1. Gráfico de Productos
+        products = Products.objects.filter(product=self.request.user)
+        if products.exists():
+            df_prod = pd.DataFrame(list(products.values('product_name', 'stock')))
+            fig_prod = px.bar(df_prod, x="product_name", y="stock", color="product_name", 
+                         title="Stock por Producto",
+                         labels={"product_name": "Producto", "stock": "Cantidad en Stock"})
+            context["plot_1"] = fig_prod.to_html(full_html=False)
+        else:
+            context["plot_1"] = "<p>No hay datos suficientes para graficar productos.</p>"
+            
+        # 2. Gráfico de Movimientos
+        movements = StockMovement.objects.filter(product__product=self.request.user)
+        if movements.exists():
+            df_mov = pd.DataFrame(list(movements.values('product__product_name', 'quantity', 'movement_type', 'timestamp')))
+            fig_mov = px.bar(df_mov, x="movement_type", y="quantity", color="movement_type", 
+                         title="Movimientos por Tipo",
+                         labels={"movement_type": "Tipo de Movimiento", "quantity": "Cantidad"})
+            context["plot_2"] = fig_mov.to_html(full_html=False)
+        else:
+            context["plot_2"] = "<p>No hay datos suficientes para graficar movimientos.</p>"
+            
+        return context
