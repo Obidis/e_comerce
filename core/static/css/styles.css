@@ -46,9 +46,8 @@
 
 /* ===== Reloj Digital ===== */
 #box-reloj {
-  background-color: #ffffff;
+  background-color: #223b6e;
   min-width: 15rem;
-  box-shadow: -5px -0px 20px 25px #223b6e inset;
   color: #00ffff;
 }
 
