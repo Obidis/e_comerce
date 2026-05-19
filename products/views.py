@@ -13,6 +13,7 @@ from django.http import HttpResponse
 
 from django.shortcuts import render
 import plotly.express as px
+import pandas as pd
 
 
 
@@ -175,20 +176,35 @@ class MovemenDeleteView(DeleteView):
  #Exportar a csv
 
 
+# csv para Products y StockMovement
 
-class CsvView(TemplateView):
+@method_decorator(login_required, name="dispatch")
+class CombinedCsvView(TemplateView):
     def get(self, request, *args, **kwargs):
+        # Crear la respuesta HTTP con el header CSV todos los usuarios
         response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = (f'attachment; filename=Productos.csv')
+        response['Content-Disposition'] = 'attachment; filename="productos_movimientos.csv"'
+        
         writer = csv.writer(response)
-        writer.writerow(['id', 'Nombre', 'Cantidad', 'Categoria', 'Proveedor', 'F-Entrada'])
-        datos = Products.objects.all().values_list('id','product_name', 'stock', 'category', 'supplier', 'timestamp')
-        for fila in datos:
-            writer.writerow(fila)
+        
+        # 1. CSV de Productos para todos los usuarios
+        writer.writerow(["id", "Nombre", "Cantidad", "Categoria", "Proveedor", "F-Entrada"])
+        products_qs = Products.objects.all().values_list(
+            'id', 'product_name', 'stock', 'category', 'supplier', 'timestamp'
+        )
+        writer.writerows(products_qs)
+        
+        # Agregar un separador o espacio
+        writer.writerow([])
+        
+        # 2. CSV de Movimientos para todos los usuarios
+        writer.writerow(["id", "Producto", "Cantidad", "Tipo", "Fecha"])
+        movements_qs = StockMovement.objects.all().values_list(
+            'id', 'product__product_name', 'quantity', 'movement_type', 'timestamp'
+        )
+        writer.writerows(movements_qs)
+        
         return response
-
-import pandas as pd
-
 
 #Graficos combinados
 @method_decorator(login_required, name="dispatch")
