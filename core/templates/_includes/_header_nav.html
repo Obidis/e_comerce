@@ -7,16 +7,16 @@
     </div>
     <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
         <ul class="navbar-nav fs-5 justify-content-evenly">
-            <li class="nav-item px-3 py-2"><a class="nav-link text-light" href="{% url 'home' %}"><i title="Home" class="bi bi-house-fill fs-2"></i></a></li>
+            <li class="nav-item px-3 py-2"><a class="nav-link text-info" href="{% url 'home' %}"><i title="Home" class="bi bi-house-fill fs-2"></i></a></li>
             
             {% if not request.user.is_authenticated %}
             
-            <li class="nav-item px-3 py-2"><a class="nav-link text-light" href="{% url 'register' %}"><i title="Register" class="bi bi-card-text fs-2"></i></a></li>
-            <li class="nav-item px-3 py-2"><a class="nav-link text-light" href="{% url 'login' %}"><i title="Login" class="bi bi-person-circle fs-2"></i></a></li>
+            <li class="nav-item px-3 py-2"><a class="nav-link text-info" href="{% url 'register' %}"><i title="Register" class="bi bi-card-text fs-2"></i></a></li>
+            <li class="nav-item px-3 py-2"><a class="nav-link text-info" href="{% url 'login' %}"><i title="Login" class="bi bi-person-circle fs-2"></i></a></li>
             {% endif %}
             {% if request.user.is_authenticated %}
                               
-                <li title="Logout" class="nav-item px-3 py-2"><a class="nav-link text-light" href="{% url 'logout' %}"><i class="bi bi-door-open-fill fs-2"></i></a></li>
+                <li title="Logout" class="nav-item px-3 py-2"><a class="nav-link text-info" href="{% url 'logout' %}"><i class="bi bi-door-open-fill fs-2"></i></a></li>
             {% endif %}
         </ul>
     <div>            
