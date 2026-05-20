@@ -16,18 +16,13 @@
 #box{
     background-color: #223b6e;
     min-width: 20rem;
-   
     color:  #223b6e;
     
 }
 #box2{
-  box-shadow: -5px -0px 50px 25px #223b6e inset;
+  box-shadow: -5px -0px 100px 50px #223b6e inset;
 }
 
-
-#box:hover{
-  box-shadow: -5px -0px 25px 15px #223b6e inset;
-}
 
 #footer_links{
   width: 12rem;
