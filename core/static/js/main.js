@@ -60,9 +60,25 @@ document.addEventListener("DOMContentLoaded", function() {
                 passwordInput.value = '';
             }
         }
-        clearInputs();
-        setTimeout(clearInputs, 50);
-        setTimeout(clearInputs, 150);
+
     }
+
+    // Clear login inputs on login page load and after form submission
+    const loginForm = document.querySelector('form[action*="login"]');
+    function clearLoginInputs() {
+        const usernameInput = document.querySelector('input[name="username"]');
+        const passwordInput = document.querySelector('input[name="password"]');
+        if (usernameInput) usernameInput.value = '';
+        if (passwordInput) passwordInput.value = '';
+    }
+        // Clear inputs immediately when the page loads
+        clearLoginInputs();
+        // Also clear after a short delay to ensure any browser autofill has been applied
+        setTimeout(clearLoginInputs, 200);
+        // Clear inputs right before form submission to ensure they are empty even if navigation occurs
+        loginForm.addEventListener('submit', function () {
+            clearLoginInputs();
+        });
+    
 });
 
