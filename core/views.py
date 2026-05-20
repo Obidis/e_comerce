@@ -22,6 +22,9 @@ class HomeView(TemplateView):
     
 # vistas de Login
 def login_view(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('home'))
+        
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -37,6 +40,7 @@ def login_view(request):
     else:
         form = LoginForm()
     return render(request, 'registration/login.html', {'form': form})
+
 
 #vista de logout
 @login_required

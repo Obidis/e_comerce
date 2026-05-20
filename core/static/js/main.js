@@ -38,4 +38,30 @@ document.addEventListener("DOMContentLoaded", function() {
         obtenerHora();
         setInterval(obtenerHora, 1000);
     }
+
+    // Limpiar campos de login después del registro para evitar el autocompletado con las credenciales viejas/nuevas si el usuario lo desea.
+    const alerts = document.querySelectorAll('.alert-success');
+    let hasRegisteredMsg = false;
+    alerts.forEach(function(alert) {
+        if (alert.textContent.includes("Usuario creado correctamente")) {
+            hasRegisteredMsg = true;
+        }
+    });
+
+    if (hasRegisteredMsg) {
+        function clearInputs() {
+            const usernameInput = document.querySelector('input[name="username"]');
+            const passwordInput = document.querySelector('input[name="password"]');
+            if (usernameInput) {
+                usernameInput.value = '';
+            }
+            if (passwordInput) {
+                passwordInput.value = '';
+            }
+        }
+        clearInputs();
+        setTimeout(clearInputs, 50);
+        setTimeout(clearInputs, 150);
+    }
 });
+
