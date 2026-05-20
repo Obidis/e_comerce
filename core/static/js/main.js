@@ -1,3 +1,8 @@
+
+
+
+//!--reloj y fecha-->
+
 document.addEventListener("DOMContentLoaded", function() {
     const relojEl = document.getElementById('reloj-hora');
     const fechaEl = document.getElementById('reloj-fecha');
@@ -38,4 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         obtenerHora();
         setInterval(obtenerHora, 1000);
     }
-});
+
+})
+
+

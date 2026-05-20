@@ -12,13 +12,13 @@
         <h1 class="card-title text-center text-info">Iniciar sesion</h1>
         <hr>
         
-        <form action="{% url 'login' %}" method="post" autocomplete="new-password">
+        <form id="login" action="{% url 'login' %}" method="post" autocomplete="off">
           {% csrf_token %} 
           <div id="django-form" class="d-flex flex-column ali align-items-center text-info">
            {{ form| crispy }}
 
           </div>  
-          <button class="btn btn-sm btn btn-outline-info">Login</button>
+          <button type="submit" class="btn btn-sm btn btn-outline-info">Login</button>
         </form>
       </div>
     </div>  

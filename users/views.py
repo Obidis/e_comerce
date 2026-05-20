@@ -13,13 +13,8 @@ def registro(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password1')   
-                      
-            user = authenticate(username=username, password=password)
-            login(request, user)
             messages.add_message(request, messages.SUCCESS, ('Usuario creado correctamente.'))
-            return HttpResponseRedirect(reverse ('login'))
+            return HttpResponseRedirect(reverse('login'))
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})

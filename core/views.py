@@ -22,6 +22,9 @@ class HomeView(TemplateView):
     
 # vistas de Login
 def login_view(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('home'))
+        
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -30,13 +33,15 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.add_message(request, messages.SUCCESS, ('Bienvenido, {}!').format(user.username))
+                messages.add_message(request, messages.SUCCESS, ('Bienvenido, {}!').format(user.username))    
                 return HttpResponseRedirect(reverse('home'))
+                
             else:
                 messages.add_message(request, messages.ERROR, _('Nombre de usuario o contraseña incorrectos.'))
     else:
         form = LoginForm()
     return render(request, 'registration/login.html', {'form': form})
+
 
 #vista de logout
 @login_required

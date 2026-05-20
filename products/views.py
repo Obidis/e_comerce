@@ -127,7 +127,7 @@ class StockMovementCreateView(CreateView):
         if movement_type == 'OUT' and not self.stock_minimun(product.stock, quantity, product):
             return self.form_invalid(form)
 
-        # Inyecta el usuario firmante antes de guardar el registro
+        # añade al usuario firmante antes de guardar el registro
         form.instance.user = self.request.user
         messages.add_message(self.request, messages.SUCCESS, ('movimiento realizado correctamente.'))
         return super().form_valid(form)
