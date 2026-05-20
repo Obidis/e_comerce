@@ -9,31 +9,63 @@
 }
 
 .navbar{
-     box-shadow: 15px 0px 125px 35px #223b6e inset;
+  background-color:#223b6e;
+  
 }
 
-#box, #box2{
-    background-color: #ffffff;
+#box{
+    background-color: #223b6e;
     min-width: 20rem;
-    box-shadow: -5px -0px 50px 25px #223b6e inset;
+   
     color:  #223b6e;
     
 }
+#box2{
+  box-shadow: -5px -0px 50px 25px #223b6e inset;
+}
+
 
 #box:hover{
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;  
+  box-shadow: -5px -0px 25px 15px #223b6e inset;
 }
 
 #footer_links{
-    width: 12rem;
-    box-shadow: -5px -0px 25px 15px #223b6e inset;
+  width: 12rem;
+  background-color:  #223b6e;
+  
 }
 
 #footer_links:hover{
-     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;  
+  box-shadow: -5px -0px 25px 15px #223b6e inset;
 }
 
-.grafics{
-    width: 500px;
-    max-height: 100px;
+
+/* ===== Reloj Digital ===== */
+#box-reloj {
+  background-color: #223b6e;
+  min-width: 15rem;
+  color: #00ffff;
+}
+
+#reloj-container {
+  text-align: center;
+ 
+}
+
+#reloj-hora {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.9rem;
+  font-weight: bold;
+  
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.6),
+               0 0 30px rgba(0, 255, 255, 0.3);
+  
+  line-height: 1;
+}
+
+#reloj-fecha {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
 }

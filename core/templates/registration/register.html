@@ -7,17 +7,17 @@
   <div class="row">
   <div class="col-12 col-md-6 offset-md-3">
     <div class="card">
-      <div id="box" class="card-body   d-flex flex-column ali align-items-center">
+      <div id="box2" class="card-body   d-flex flex-column align-items-center text-info">
         <h1 class="card-title">Registrarse</h1>
         
-        <form action="" method="post">
+        <form  action="" method="post">
         {% csrf_token %} 
-          <div id="django-form" class="d-flex flex-column ali align-items-center">
+          <div id="django-form" class="d-flex flex-column ali align-items-center text-info">
             
             {{ form| crispy }}
           
           </div>
-          <button class="btn btn-sm btn-outline-success">Enviar</button>
+          <button class="btn btn-sm btn-outline-info">Enviar</button>
         </form>
         </div>
     </div>

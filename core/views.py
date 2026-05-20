@@ -15,7 +15,6 @@ from django.utils.translation import gettext_lazy as _ #para la traduccion
 
 
 
-
 # viastas del index 
 class HomeView(TemplateView):
     template_name = "general/home.html"

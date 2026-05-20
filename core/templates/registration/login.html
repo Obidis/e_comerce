@@ -7,18 +7,18 @@
 <div class="row">
   <div class="col-12 col-md-6 offset-md-3">
     <div class="card">
-      <div id="box" class="card-body  d-flex flex-column align-items-center">
+      <div id="box2" class="card-body  d-flex flex-column align-items-center">
         
-        <h1 class="card-title text-center">Iniciar sesion</h1>
+        <h1 class="card-title text-center text-info">Iniciar sesion</h1>
         <hr>
         
         <form action="{% url 'login' %}" method="post" autocomplete="new-password">
           {% csrf_token %} 
-          <div id="django-form" class="d-flex flex-column ali align-items-center">
+          <div id="django-form" class="d-flex flex-column ali align-items-center text-info">
            {{ form| crispy }}
 
           </div>  
-          <button class="btn btn-sm btn-outline-success">Login</button>
+          <button class="btn btn-sm btn btn-outline-info">Login</button>
         </form>
       </div>
     </div>  
