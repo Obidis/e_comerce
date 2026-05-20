@@ -39,16 +39,17 @@ document.addEventListener("DOMContentLoaded", function() {
         setInterval(obtenerHora, 1000);
     }
 
-    // Limpiar campos de login después del registro para evitar el autocompletado con las credenciales viejas/nuevas si el usuario lo desea.
+    // Limpiar campos de login después del registro o login para evitar el autocompletado con credenciales antiguas
     const alerts = document.querySelectorAll('.alert-success');
-    let hasRegisteredMsg = false;
+    let shouldClear = false;
     alerts.forEach(function(alert) {
-        if (alert.textContent.includes("Usuario creado correctamente")) {
-            hasRegisteredMsg = true;
+        const text = alert.textContent || '';
+        if (text.includes("Usuario creado correctamente") || text.includes("Bienvenido")) {
+            shouldClear = true;
         }
     });
 
-    if (hasRegisteredMsg) {
+    if (shouldClear) {
         function clearInputs() {
             const usernameInput = document.querySelector('input[name="username"]');
             const passwordInput = document.querySelector('input[name="password"]');
