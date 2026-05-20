@@ -1,3 +1,8 @@
+
+
+
+//!--reloj y fecha-->
+
 document.addEventListener("DOMContentLoaded", function() {
     const relojEl = document.getElementById('reloj-hora');
     const fechaEl = document.getElementById('reloj-fecha');
@@ -39,46 +44,6 @@ document.addEventListener("DOMContentLoaded", function() {
         setInterval(obtenerHora, 1000);
     }
 
-    // Limpiar campos de login después del registro o login para evitar el autocompletado con credenciales antiguas
-    const alerts = document.querySelectorAll('.alert-success');
-    let shouldClear = false;
-    alerts.forEach(function(alert) {
-        const text = alert.textContent || '';
-        if (text.includes("Usuario creado correctamente") || text.includes("Bienvenido")) {
-            shouldClear = true;
-        }
-    });
+})
 
-    if (shouldClear) {
-        function clearInputs() {
-            const usernameInput = document.querySelector('input[name="username"]');
-            const passwordInput = document.querySelector('input[name="password"]');
-            if (usernameInput) {
-                usernameInput.value = '';
-            }
-            if (passwordInput) {
-                passwordInput.value = '';
-            }
-        }
-
-    }
-
-    // Clear login inputs on login page load and after form submission
-    const loginForm = document.querySelector('form[action*="login"]');
-    function clearLoginInputs() {
-        const usernameInput = document.querySelector('input[name="username"]');
-        const passwordInput = document.querySelector('input[name="password"]');
-        if (usernameInput) usernameInput.value = '';
-        if (passwordInput) passwordInput.value = '';
-    }
-        // Clear inputs immediately when the page loads
-        clearLoginInputs();
-        // Also clear after a short delay to ensure any browser autofill has been applied
-        setTimeout(clearLoginInputs, 200);
-        // Clear inputs right before form submission to ensure they are empty even if navigation occurs
-        loginForm.addEventListener('submit', function () {
-            clearLoginInputs();
-        });
-    
-});
 
