@@ -1,15 +1,15 @@
 {% load static %}
 
-    <div class=" d-flex align-items-center justify-content-center  gap-2 flex-wrap">
-                        
-      <a id="footer_links" class="nav-link  d-flex flex-column align-items-center m-2 p-3 fs-6 text-info rounded" href="{% url 'product_create' %}"><i class="bi bi-box-arrow-in-right fs-6"></i>Agregar producto</a>
+<div class=" d-flex align-items-center justify-content-center  gap-5 flex-wrap">
+                    
+  <a title="Agregar producto" class="nav-link  d-flex flex-column align-items-center fs-6 text-info rounded" href="{% url 'product_create' %}"><i class="bi bi-box-arrow-in-right bg-secondary rounded-circle p-3 fs-3"></i></a>
 
-      <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 p-3 fs-6 text-info rounded" href="{% url 'movements_create' %}"><i id="icons" class="bi bi-box-arrow-in-right"></i>Agregar movimiento</a>
+  <a title="Agregar movimientos"  class="nav-link d-flex flex-column align-items-center fs-6 text-info rounded" href="{% url 'movements_create' %}"><i id="icons" class="bi bi-box-arrow-in-right bg-secondary rounded-circle p-3 fs-3"></i></a>
 
-      <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 p-3 fs-6 text-info rounded" href="{% url 'products_list' %}"><i id="icons" class="bi bi-boxes"></i>Stock</a>
+  <a title="Stock" class="nav-link d-flex flex-column align-items-center fs-6 text-info rounded" href="{% url 'products_list' %}"><i id="icons" class="bi bi-boxes bg-secondary rounded-circle p-3 fs-3"></i></a>
 
-      <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 p-3 fs-6 text-info rounded" href="{% url 'movements_list' %}"> <i id="icons" class="bi bi-arrow-down-up"></i>Movimientos</a>
+  <a title="Movimientos" class="nav-link d-flex flex-column align-items-center fs-6 text-info rounded" href="{% url 'movements_list' %}"><i id="icons" class="bi bi-arrow-down-up bg-secondary rounded-circle p-3 fs-3"></i></a>
 
-      <a id="footer_links" class="nav-link d-flex flex-column align-items-center  m-2 p-3 fs-6 text-info rounded" href="{% url 'graficos' %}"><i id="icons" class="bi bi-graph-up-arrow"></i>Graficos</a>
-    </div>
-                   
+  <a title="Graficos"  class="nav-link d-flex flex-column align-items-center fs-6 text-info rounded" href="{% url 'graficos' %}"><i id="icons" class="bi bi-graph-up-arrow bg-secondary rounded-circle p-3 fs-3"></i></a>
+</div>
+                

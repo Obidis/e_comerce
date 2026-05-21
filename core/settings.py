@@ -1,7 +1,6 @@
 from pathlib import Path
 from django.urls import reverse_lazy #para la proteccion de solo logeados
-from django.utils.translation import gettext_lazy as _ #para la traduccion
-import os #para la traduccion
+import os 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -112,28 +111,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
-
-
-
-LOCALE_PATHS = [
-   os.path.join(BASE_DIR, 'locale'), #para la traduccion
-]
 
 TIME_ZONE = 'Europe/Madrid'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-PREFIX_DEFAULT_LANGUAGE = True #para la traduccion
+
 
 LANGUAGE_CODE = 'es-ES'
-LANGUAGES = [
-    ('es', _('Spanish')),    #para la traduccion
-    ('en', _('English')),
-]
 
-LANGUAGE_COOKIES_NAME = 'django_language' #para la traduccion
+
 
 
 
@@ -141,8 +128,11 @@ LANGUAGE_COOKIES_NAME = 'django_language' #para la traduccion
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "core" / "static",  
+]
 
-# Default primary key field type
+#Default secondary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
