@@ -1,36 +1,8 @@
 
 
-.form-control{
-    background-color: #e8e8eb;
-}
-
-#django-form-input {
-    background-color: #e8e8eb; 
-}
-
-
-
 #box{
-    background-color: #223b6e;
-    min-width: 20rem;
-    color:  #223b6e;
-    
+  min-width: 19rem;
 }
-#box2{
-  box-shadow: -5px -0px 100px 50px #223b6e inset;
-}
-
-
-#footer_links{
-  width: 12rem;
-  background-color:  #223b6e;
-  
-}
-
-#footer_links:hover{
-  box-shadow: -5px -0px 25px 15px #223b6e inset;
-}
-
 
 /* ===== Reloj Digital ===== */
 #box-reloj {
@@ -46,7 +18,7 @@
 
 #reloj-hora {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 2.4rem;
+  font-size: 1.6rem;
   font-weight: bold;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.6),
                0 0 30px rgba(0, 255, 255, 0.3);
