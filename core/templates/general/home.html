@@ -1,49 +1,79 @@
-{% extends 'general/layout.html' %}
-
+{% load static %}
+{% extends 'general/layout.html' %} 
 {% block head_title %}Home{% endblock %}
 {% block content %}
 
-
-
-
 <section class="d-flex flex-column align-items-center mt-4">
-    
-    <h2 class="display-6">Dashboard</h2>
-    <div class="container d-flex ">
-        
-        <div class="d-flex flex-wrap justify-content-center align-items-center">
+  <h2 class="display-6 text-info">Dashboard</h2>
+  <div class="container d-flex">
+    <div class="d-flex flex-wrap justify-content-center align-items-center">
+      <div
+        id="box"
+        class="p-5 d-flex flex-column align-items-center m-2 rounded bg-secondary"
+      >
+        <a
+          class="nav-link d-flex flex-column align-items-center p-2 text-info"
+          href="{% url 'product_create' %}"
+          ><i class="bi bi-box-arrow-in-right fs-2"></i> Agregar producto</a
+        >
+      </div>
 
+      <div
+        id="box"
+        class="p-5 d-flex flex-column align-items-center m-2 rounded bg-secondary"
+      >
+        <a
+          class="nav-link d-flex flex-column align-items-center m-2 text-center text-info bg-secondary"
+          href="{% url 'movements_create' %}"
+          ><i class="bi bi-box-arrow-in-right fs-2"></i>Agregar movimiento</a
+        >
+      </div>
 
-            <div id="box" class="p-5 d-flex flex-column align-items-center m-2 rounded">
-                <a class="nav-link d-flex flex-column align-items-center p-2 text-info " href="{% url 'product_create' %}"><i class="bi bi-box-arrow-in-right fs-2"></i> Agregar producto</a>
-            </div>
+      <div
+        id="box"
+        class="p-5 d-flex flex-column align-items-center m-2 rounded bg-secondary"
+      >
+        <a
+          class="nav-link d-flex flex-column align-items-center m-2 text-info"
+          href="{% url 'products_list' %}"
+          ><i class="bi bi-boxes fs-2"></i> Stock</a
+        >
+      </div>
 
-            <div id="box" class="p-5 d-flex flex-column align-items-center m-2  rounded">
-                <a class="nav-link d-flex flex-column align-items-center  m-2 text-center text-info" href="{% url 'movements_create' %}"><i class="bi bi-box-arrow-in-right fs-2"></i>Agregar movimiento</a>
-            </div>
+      <div
+        id="box"
+        class="p-5 d-flex flex-column align-items-center m-2 rounded bg-secondary"
+      >
+        <a
+          class="nav-link d-flex flex-column align-items-center m-2 text-info rounded"
+          href="{% url 'movements_list' %}"
+        >
+          <i class="bi bi-arrow-down-up fs-2"></i>Movimientos</a
+        >
+      </div>
 
-            <div id="box" class="p-5 d-flex flex-column align-items-center m-2 rounded">
-                <a class="nav-link d-flex flex-column align-items-center m-2 text-info rounded" href="{% url 'products_list' %}"><i class="bi bi-boxes fs-2"></i> Stock</a>
-            </div>
-
-            <div id="box" class="p-5 d-flex flex-column align-items-center m-2 rounded">
-                <a class="nav-link d-flex flex-column align-items-center m-2 text-info rounded" href="{% url 'movements_list' %}"> <i class="bi bi-arrow-down-up fs-2"></i>Movimientos</a>
-            </div>
-
-            <div id="box-reloj" class="p-5 d-flex flex-column align-items-center m-2 rounded">
-                <div id="reloj-container">
-                    <div class="text-info" id="reloj-hora">00:00:00</div>
-                    <div class="text-info"  id="reloj-fecha">Cargando...</div>
-                </div>
-            </div>
-
-            <div id="box" class=" p-5 d-flex flex-column  align-items-center m-2 rounded">
-                <a class="nav-link d-flex flex-column align-items-center  m-2 text-info rounded" href="{% url 'graficos' %}"><i class="bi bi-graph-up-arrow fs-2"></i> Graficos</a>
-            </div>
-                
+      <div
+        id="box-reloj"
+        class="p-5 d-flex flex-column align-items-center m-2 rounded bg-secondary"
+      >
+        <div id="reloj-container">
+          <div class="text-info" id="reloj-hora">00:00:00</div>
+          <div class="text-info" id="reloj-fecha">Cargando...</div>
         </div>
-    </div>           
-</section>    
+      </div>
 
+      <div
+        id="box"
+        class="p-5 d-flex flex-column align-items-center m-2 rounded bg-secondary"
+      >
+        <a
+          class="nav-link d-flex flex-column align-items-center m-2 text-info rounded"
+          href="{% url 'graficos' %}"
+          ><i class="bi bi-graph-up-arrow fs-2"></i> Graficos</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
 
 {% endblock %}
