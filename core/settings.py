@@ -1,7 +1,8 @@
-from pathlib import Path
-from django.urls import reverse_lazy #para la proteccion de solo logeados
 import os 
 import dj_database_url
+from pathlib import Path
+from django.urls import reverse_lazy #para la proteccion de solo logeados
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
