@@ -13,5 +13,4 @@ plotly==6.7.0
 python-dateutil==2.9.0.post0
 six==1.17.0
 sqlparse==0.5.5
-tk==0.1.0
 whitenoise==6.12.0
