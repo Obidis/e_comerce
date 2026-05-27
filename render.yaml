@@ -1,0 +1,27 @@
+# render.yaml – Blueprint for deploying the Django e‑commerce site on Render
+
+# Define the managed PostgreSQL database
+
+databases:
+  - name: ecomerce-db            # logical name for the DB service
+    plan: free                    # free tier; change to paid if needed
+    databaseName: ecomerce
+    user: ecomerce_user
+
+# Define the web service
+services:
+  - type: web
+    name: ecomerce-web
+    env: python
+    buildCommand: "./build.sh"   # runs pip install, migrations, collectstatic
+    startCommand: "gunicorn core.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ecomerce-db
+          property: connectionString
+      - key: SECRET_KEY
+        generate: true            # Render will generate a random secret key
+      - key: DJANGO_SETTINGS_MODULE
+        value: core.settings
+    # Optional: you can add health checks, autoscaling, etc.
