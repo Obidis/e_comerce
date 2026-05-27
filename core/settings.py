@@ -68,7 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.i18n',  # para la traduccion
+               
             ],
         },
     },
@@ -141,9 +141,3 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 LOGIN_URL = reverse_lazy("login")
 
 
-#Email Config
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "keosden@gmail.com"
-EMAIL_HOST_PASSWORD = "qkyz jkam chwp itla"
