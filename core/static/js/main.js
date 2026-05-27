@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const mes = meses[fecha.getMonth()];
             const anio = fecha.getFullYear();
 
-            const fechaFormateada = `${diaSemana}, ${dia} de ${mes} de ${anio}`;
+            const fechaFormateada = `${dia} de ${mes} de ${anio}`;
 
             // Renderiza la hora
             if (relojEl) {

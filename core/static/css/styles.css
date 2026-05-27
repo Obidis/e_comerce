@@ -1,32 +1,13 @@
 
 
 #box{
-  min-width: 19rem;
+  min-width: 18rem;
 }
 
 /* ===== Reloj Digital ===== */
-#box-reloj {
-  background-color: #223b6e;
-  min-width: 15rem;
-  color: #00ffff;
-}
-
-#reloj-container {
-  text-align: center;
- 
-}
-
-#reloj-hora {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.6rem;
-  font-weight: bold;
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.6),
-               0 0 30px rgba(0, 255, 255, 0.3);
-  line-height: 1;
-}
 
 #reloj-fecha {
-  font-size: 0.95rem;
+
   color: rgba(255, 255, 255, 0.85);
   margin-top: 0.5rem;
   letter-spacing: 0.05em;
