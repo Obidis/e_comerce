@@ -1,7 +1,9 @@
-from pathlib import Path
-from django.urls import reverse_lazy #para la proteccion de solo logeados
+
+
 import os 
 import dj_database_url
+from pathlib import Path
+from django.urls import reverse_lazy #para la proteccion de solo logeados
 
 
 
@@ -76,7 +78,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
-DATABASE = {
+DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL'),
         conn_max_age=600
