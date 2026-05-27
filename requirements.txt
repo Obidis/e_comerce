@@ -15,4 +15,4 @@ six==1.17.0
 sqlparse==0.5.5
 tk==0.1.0
 whitenoise==6.12.0
-psycopg[binary]==3.2.2
+psycopg[binary]==3.2.13
