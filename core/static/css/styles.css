@@ -4,11 +4,5 @@
   min-width: 18rem;
 }
 
-/* ===== Reloj Digital ===== */
 
-#reloj-fecha {
 
-  color: rgba(255, 255, 255, 0.85);
-  margin-top: 0.5rem;
-  letter-spacing: 0.05em;
-}

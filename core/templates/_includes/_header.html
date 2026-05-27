@@ -12,9 +12,14 @@
            {% include "_includes/_header_nav.html" %}
         </div>
     </nav>
+   
     {% if request.user.is_authenticated %}
         <p class="text-secondary">Usuario: <span class="text-success">{{ user.username }}</span></p>
     {% else %}
         <p class="text-secondary">Usuario: <span class="text-danger">No hay usuario registrado</span></p>
     {% endif %}
+     
+    <p class="text-info fs-6 text-center" id="reloj-fecha">Cargando...</p>
+    <p class="text-info fs-6 text-center" id="reloj-hora">00:00:00</p>
+
 </header>
