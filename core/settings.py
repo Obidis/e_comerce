@@ -1,7 +1,7 @@
 
 
 import os 
-import dj_database_url
+
 from pathlib import Path
 from django.urls import reverse_lazy #para la proteccion de solo logeados
 
@@ -16,7 +16,7 @@ TEMPLATES_DIR = BASE_DIR / "core" / "templates"
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-local-dev-key-123')
+SECRET_KEY = 'django-insecure-##q-3*q-!szd^&br^sm4m)leib2$rt6oj&3!&to&5r6ah9!)rx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', 'sqlite:///db.sqlite3'),
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
