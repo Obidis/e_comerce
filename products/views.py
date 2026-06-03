@@ -70,12 +70,32 @@ class ProductUpdateView(UpdateView):
     def get_success_url(self):
         return reverse('home')
 
-# Listado de producto
-@method_decorator(login_required, name="dispatch")
 class ProductsListView(ListView):
     model = Products
     template_name = "products/products_list.html"
-    context_object_name = "products"    
+    context_object_name = "products"
+
+    def get_queryset(self):
+        qs = super().get_queryset().filter(product=self.request.user)
+        category = self.request.GET.get('category')
+        supplier = self.request.GET.get('supplier')
+        if category:
+            qs = qs.filter(category=category)
+        if supplier:
+            qs = qs.filter(supplier=supplier)
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user_qs = Products.objects.filter(product=self.request.user)
+        context['categories'] = user_qs.values_list('category', flat=True).distinct()
+        context['suppliers'] = user_qs.values_list('supplier', flat=True).distinct()
+        context['selected_category'] = self.request.GET.get('category', '')
+        context['selected_supplier'] = self.request.GET.get('supplier', '')
+        return context
+
+# Listado de producto
+
 
 
 #Busqueda de productos y movimientos

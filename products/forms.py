@@ -14,6 +14,20 @@ class ProductCreateForm(forms.ModelForm):
             "supplier",
             "stock"
         ]
+        widgets = {
+            "category": forms.Select(choices=[
+                ("Camas", "Camas"),
+                ("Sillas", "Sillas"),
+                ("Gruas", "Gruas"),
+                ("Scooters", "Scooters"),
+            ]),
+            "supplier": forms.Select(choices=[
+                ("Ossor", "Ossor"),
+                ("Ottobock", "Ottobock"),
+                ("Synthes", "Synthes"),
+                ("Amoena", "Amoena"),
+            ]),
+        }
 
 
 class StockMovementForm(forms.ModelForm):

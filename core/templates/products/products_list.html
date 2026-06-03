@@ -11,6 +11,24 @@
   {% include "_includes/_csv.html" %}
   <h1 class="display-6  text-center mb-5">Listado completo de productos</h1>
   <hr>
+  <form method="get" class="row g-3 mb-3">
+      <div class="col-auto">
+          <select name="category" class="form-select" onchange="this.form.submit()">
+              <option value="">Todas las categorías</option>
+              {% for cat in categories %}
+                  <option value="{{ cat }}" {% if cat == selected_category %}selected{% endif %}>{{ cat }}</option>
+              {% endfor %}
+          </select>
+      </div>
+      <div class="col-auto">
+          <select name="supplier" class="form-select" onchange="this.form.submit()">
+              <option value="">Todos los proveedores</option>
+              {% for sup in suppliers %}
+                  <option value="{{ sup }}" {% if sup == selected_supplier %}selected{% endif %}>{{ sup }}</option>
+              {% endfor %}
+          </select>
+      </div>
+  </form>
     <!-- Tabla productos -->
   <div class="table-responsive table-sm mt-5">
     <table class="table table-bordered table-hover">
