@@ -4,7 +4,7 @@
 {% block content %}
 
 <section class="d-flex flex-column align-items-center mt-4">
-  <h2 class="display-6 text-info">Dashboard</h2>
+  <h2 class="display-6 text-info">Control de Stock</h2>
   
   <div class="container d-flex">
     <div class="d-flex flex-wrap justify-content-center align-items-center">
@@ -30,6 +30,14 @@
      
       <div id="box" class="p-5 d-flex flex-column align-items-center m-2 rounded bg-secondary">
         <a class="nav-link d-flex flex-column align-items-center text-info rounded" href="{% url 'graficos' %}"><i class="bi bi-graph-up-arrow fs-2"></i> Graficos</a>
+      </div>
+
+      <div id="box" class="p-5 d-flex flex-column align-items-center m-2 rounded bg-secondary">
+        <a class="nav-link d-flex flex-column align-items-center text-info rounded" href="{% url 'alerts' %}">{% if has_alerts %}
+        <i class="bi bi-exclamation-octagon fs-2 text-danger"></i>
+    {% else %}
+        <i class="bi bi-exclamation-octagon fs-2 text-info"></i>
+    {% endif %} Alertas</a>
       </div>
     </div>
   </div>

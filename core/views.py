@@ -18,7 +18,16 @@ from django.utils.translation import gettext_lazy as _ #para la traduccion
 # viastas del index 
 class HomeView(TemplateView):
     template_name = "general/home.html"
-    
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Determine if the current user has any products with zero stock
+        if self.request.user.is_authenticated:
+            from products.models import Products
+            context['has_alerts'] = Products.objects.filter(product=self.request.user, stock=0).exists()
+        else:
+            context['has_alerts'] = False
+        return context
     
 # vistas de Login
 def login_view(request):

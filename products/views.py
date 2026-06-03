@@ -257,3 +257,17 @@ class GraphicsView(TemplateView):
             context["plot_2"] = "<p>No hay datos suficientes para graficar movimientos.</p>"
             
         return context
+    
+#si el stock del producto es insuficiente(2) mostrar y mantener alertas hasta recargar stock
+@method_decorator(login_required, name="dispatch")
+class AlertListView(ListView):
+    model = Products
+    template_name = "products/alerts.html"
+    context_object_name = "alerts"
+
+    def get_queryset(self):
+        # Productos del usuario con stock insuficiente (stock = 0)
+        return self.model.objects.filter(product=self.request.user, stock=0)
+
+
+    
