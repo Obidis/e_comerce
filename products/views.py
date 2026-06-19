@@ -70,6 +70,8 @@ class ProductUpdateView(UpdateView):
     def get_success_url(self):
         return reverse('home')
 
+
+@method_decorator(login_required, name="dispatch")
 class ProductsListView(ListView):
     model = Products
     template_name = "products/products_list.html"
